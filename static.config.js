@@ -60,6 +60,7 @@ export default {
     config.module.rules = [
       {
         oneOf: [
+          defaultLoaders.cssLoader,
           {
             test: /\.s(a|c)ss$/,
             use:
@@ -82,9 +83,8 @@ export default {
                   ],
                 }),
           },
-          defaultLoaders.cssLoader,
-          defaultLoaders.jsLoader,
           defaultLoaders.fileLoader,
+          defaultLoaders.jsLoader,
           {
             test: /\.js(x?)$/,
             exclude: /node_modules/,
