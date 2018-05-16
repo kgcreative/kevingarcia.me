@@ -7,6 +7,6 @@ This example is the most basic version of react-static available. It includes:
 - File imports
 - SASS Loader
 - Automatic Routing
-- Experimantal CSS blocks configuration (WIP)
+- Experimental CSS blocks configuration (WIP)
 
 To get started, clone this repo, then run `yarn start`
