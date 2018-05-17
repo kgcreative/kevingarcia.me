@@ -14,7 +14,10 @@ import Post from "./containers/Post.jsx";
 
 import './app.scss'
 
+// There's probably a better way to get this link tag into the document.
 const App = () => (
+  <div>
+  <link rel="stylesheet" href="/css-blocks.css" />
   <Router>
     <div>
       <nav>
@@ -27,6 +30,7 @@ const App = () => (
       </div>
     </div>
   </Router>
+  </div>
 )
 
 export default hot(module)(App)
