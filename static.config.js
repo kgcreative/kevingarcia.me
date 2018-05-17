@@ -2,26 +2,17 @@ import axios from 'axios'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 // Import CSS Blocks Plugin, Analyzer & Rewriter
+const { resolveConfiguration } = require('@css-blocks/core')
 const { Rewriter, Analyzer } = require('@css-blocks/jsx')
 const { CssBlocksPlugin } = require('@css-blocks/webpack')
 const cssBlocksRewriter = require('@css-blocks/jsx/dist/src/transformer/babel')
 
-// Configure CSS Blocks Compilation, rewriter & analyzer options
-const jsxCompilationOptions = {
-  compilationOptions: {},
-  optimization: {
-    rewriteIdents: true,
-    mergeDeclarations: true,
-    removeUnusedStyles: true,
-    conflictResolution: true,
-  },
-}
-const rewriter = new Rewriter()
-const analyzer = new Analyzer('./src/index.js', jsxCompilationOptions)
+
 
 export default {
   getSiteData: () => ({
     title: 'React Static',
+    siteRoot: '/',
   }),
   getRoutes: async () => {
     const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
@@ -57,75 +48,109 @@ export default {
     ]
   },
   webpack: (config, { defaultLoaders, stage }) => {
+    // Configure CSS Blocks Compilation, rewriter & analyzer options
+    const jsxCompilationOptions = {
+      compilationOptions: resolveConfiguration({
+
+      }),
+      optimization: {
+        enabled: stage !== 'dev',
+        rewriteIdents: true,
+        mergeDeclarations: true,
+        removeUnusedStyles: true,
+        conflictResolution: true,
+      },
+    }
+    const rewriter = new Rewriter();
+    const analyzer = new Analyzer('./src/index.js', jsxCompilationOptions)
+    let loaders;
+
+    if (stage === 'dev') {
+      loaders = [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }]
+    } else {
+      loaders = [
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            minimize: stage === 'prod',
+            sourceMap: false,
+          },
+        },
+        {
+          loader: 'sass-loader',
+          options: { includePaths: ['src/'] },
+        },
+      ]
+
+      // Don't extract css to file during node build process
+      if (stage !== 'node') {
+        loaders = ExtractTextPlugin.extract({
+          fallback: {
+            loader: 'style-loader',
+            options: {
+              sourceMap: false,
+              hmr: false,
+            },
+          },
+          use: loaders,
+        })
+      }
+    }
+
+    let jsxLoader = {
+      test: /\.jsx$/,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: 'babel-loader',
+          options: {
+            presets: ["env", "react", "stage-2"],
+            cacheDirectory: stage !== 'prod',
+            compact: true,
+            plugins: [
+              cssBlocksRewriter.makePlugin({ rewriter }),
+            ],
+            parserOpts: {
+              plugins: ['jsx'],
+            },
+          },
+        },
+        {
+          loader: require.resolve('@css-blocks/webpack/dist/src/loader'),
+          options: {
+            analyzer,
+            rewriter,
+          },
+        },
+      ],
+    };
+    
+    defaultLoaders.cssLoader.exclude = /\.block\..*$/;
+
     config.module.rules = [
       {
         oneOf: [
-          defaultLoaders.cssLoader,
           {
             test: /\.s(a|c)ss$/,
-            use:
-              stage === 'dev'
-                ? [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }]
-                : ExtractTextPlugin.extract({
-                  use: [
-                    {
-                      loader: 'css-loader',
-                      options: {
-                        importLoaders: 1,
-                        minimize: true,
-                        sourceMap: false,
-                      },
-                    },
-                    {
-                      loader: 'sass-loader',
-                      options: { includePaths: ['src/'] },
-                    },
-                  ],
-                }),
+            exclude: /\.block\..*$/,
+            use: loaders,
           },
-          defaultLoaders.fileLoader,
+          defaultLoaders.cssLoader,
+          jsxLoader,
           defaultLoaders.jsLoader,
-          {
-            test: /\.js(x?)$/,
-            exclude: /node_modules/,
-            use: [
-              {
-                loader: require.resolve('babel-loader'),
-                options: {
-                  presets: ["env", "react", "stage-2"],
-                  cacheDirectory: true,
-                  compact: true,
-                },
-              },
-              {
-                loader: require.resolve('babel-loader'),
-                options: {
-                  plugins: [
-                    cssBlocksRewriter.makePlugin({ rewriter }),
-                  ],
-                  parserOpts: {
-                    plugins: ['jsx'],
-                  },
-                },
-              },
-              {
-                loader: require.resolve('@css-blocks/webpack/dist/src/loader'),
-                options: {
-                  analyzer,
-                  rewriter,
-                },
-              },
-            ],
-          },
+          defaultLoaders.fileLoader,
         ],
       },
     ]
+
     config.plugins.push(new CssBlocksPlugin({
       analyzer,
-      outputCssFile: 'bundle.css',
+      outputCssFile: 'css-blocks.css',
       compilationOptions: jsxCompilationOptions.compilationOptions,
       optimization: jsxCompilationOptions.optimization,
     }))
-    return config
+
+    return config;
   },
 }
