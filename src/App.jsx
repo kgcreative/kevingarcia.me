@@ -2,6 +2,7 @@ import React from 'react'
 import { Router, Link } from 'react-static'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
+import NavMenu from './components/NavMenu'
 // These have to be imported here for css blocks to find them.
 // I'm not sure what that does to the webpack output.
 // In theory we can add a way to provide additional entry points to css blocks that aren't part of webpack.
@@ -12,25 +13,22 @@ import Blog from "./containers/Blog.jsx";
 import Home from "./containers/Home.jsx";
 import Post from "./containers/Post.jsx";
 
-import './app.scss'
+import styles from './app.scss';
 
 // There's probably a better way to get this link tag into the document.
 const App = () => (
-  <div>
-  <link rel="stylesheet" href="/css-blocks.css" />
-  <Router>
-    <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/blog">Blog</Link>
-      </nav>
-      <div className="content">
-        <Routes />
-      </div>
-    </div>
-  </Router>
-  </div>
+  <React.Fragment>
+    <Router>
+      <React.Fragment>
+        <header>
+          <NavMenu />
+        </header>
+        <main className="content">
+          <Routes />
+        </main>
+      </React.Fragment>
+    </Router>
+  </React.Fragment>
 )
 
 export default hot(module)(App)

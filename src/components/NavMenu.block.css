@@ -1,0 +1,10 @@
+:scope {
+  width: 100%;
+  background: #108db8;
+}
+
+.link {
+  color: white;
+  padding: 1rem;
+  display: inline-block;
+}

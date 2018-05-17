@@ -1,5 +1,6 @@
 import axios from 'axios'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import React from 'react'
 
 // Import CSS Blocks Plugin, Analyzer & Rewriter
 const { resolveConfiguration } = require('@css-blocks/core')
@@ -7,11 +8,10 @@ const { Rewriter, Analyzer } = require('@css-blocks/jsx')
 const { CssBlocksPlugin } = require('@css-blocks/webpack')
 const cssBlocksRewriter = require('@css-blocks/jsx/dist/src/transformer/babel')
 
-
-
 export default {
+  preact: true,
   getSiteData: () => ({
-    title: 'React Static',
+    title: 'React Static with CSS Blocks',
     siteRoot: '/',
   }),
   getRoutes: async () => {
@@ -47,6 +47,17 @@ export default {
       },
     ]
   },
+  Document: ({ Html, Head, Body, children }) => (
+    // Instance custom html document with link to css-blocks styles
+    <Html lang="en-US">
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css-blocks.css" />
+      </Head>
+      <Body>{children}</Body>
+    </Html>
+  ),
   webpack: (config, { defaultLoaders, stage }) => {
     // Configure CSS Blocks Compilation, rewriter & analyzer options
     const jsxCompilationOptions = {
@@ -61,9 +72,9 @@ export default {
         conflictResolution: true,
       },
     }
-    const rewriter = new Rewriter();
+    const rewriter = new Rewriter()
     const analyzer = new Analyzer('./src/index.js', jsxCompilationOptions)
-    let loaders;
+    let loaders
 
     if (stage === 'dev') {
       loaders = [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }]
@@ -74,7 +85,7 @@ export default {
           options: {
             importLoaders: 1,
             minimize: stage === 'prod',
-            sourceMap: false,
+            sourceMap: true,
           },
         },
         {
@@ -89,7 +100,7 @@ export default {
           fallback: {
             loader: 'style-loader',
             options: {
-              sourceMap: false,
+              sourceMap: true,
               hmr: false,
             },
           },
@@ -124,9 +135,9 @@ export default {
           },
         },
       ],
-    };
-    
-    defaultLoaders.cssLoader.exclude = /\.block\..*$/;
+    }
+
+    defaultLoaders.cssLoader.exclude = /\.block\..*$/
 
     config.module.rules = [
       {
@@ -143,14 +154,14 @@ export default {
         ],
       },
     ]
-
     config.plugins.push(new CssBlocksPlugin({
       analyzer,
       outputCssFile: 'css-blocks.css',
       compilationOptions: jsxCompilationOptions.compilationOptions,
       optimization: jsxCompilationOptions.optimization,
     }))
+    config.plugins.push(new ExtractTextPlugin('styles.css'))
 
-    return config;
+    return config
   },
 }
