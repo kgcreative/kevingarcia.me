@@ -101,7 +101,7 @@ export default {
             loader: 'style-loader',
             options: {
               sourceMap: true,
-              hmr: false,
+              hmr: true,
             },
           },
           use: loaders,

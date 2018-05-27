@@ -1,19 +1,50 @@
-$primary-color: #108db8;
+
+$primary-color: hsl(195, 84%, 39%);
 $sans-serif-font: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
   'Lucida Grande', sans-serif;
 
+:root {
+  --primary-color: #{$primary-color};
+  --sans-serif-font: #{$sans-serif-font};
+  --background-color: inherit;
+  --text-color: #333;
+}
+
 body {
   font-family: $sans-serif-font;
+  font-family: var(--sans-serif-font);
   font-weight: 300;
   font-size: 16px;
   margin: 0;
   padding: 0;
+  line-height: 1.5;
 }
 
 a {
   text-decoration: none;
   color: $primary-color;
-  font-weight: bold;
+  color: var(--primary-color);
+  background: var(--background-color);
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: calc(100% + 2px);
+    left: -1px;
+    right: -1px;
+    bottom: -2px;
+    height: 1px;
+    background-color: var(--primary-color);
+    display: block;
+  }
+  &:hover {
+    &::after {
+      opacity: 0.25;
+      height: calc(100% + 4px);
+      top: -2px;
+    }
+  }
 }
 
 img {
@@ -23,3 +54,13 @@ img {
 .content {
   padding: 1rem;
 }
+
+//typography
+p, h1, h2, h3, h4, h5, h6 {
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  color: var(--text-color);
+  line-height: var(--line-height);
+  margin-bottom: var(--margin-bottom);
+}
+

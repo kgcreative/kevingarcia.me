@@ -1,4 +1,19 @@
-:scope {
-  color: white;
-  background-color: gray;
+.text {
+  color: #333;
+  color: var(--text-color);
+  max-width: 30em;
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  --font-size: 32px;
+  --font-weight: 400;
+}
+
+.image {
+  margin: auto;
+  max-width: 300px;
+  display: block;
 }
