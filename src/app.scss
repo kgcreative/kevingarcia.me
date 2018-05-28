@@ -37,12 +37,14 @@ a {
     height: 1px;
     background-color: var(--primary-color);
     display: block;
+    z-index: 1;
   }
   &:hover {
     &::after {
-      opacity: 0.25;
+      opacity: 0.15;
       height: calc(100% + 4px);
-      top: -2px;
+      top: -1px;
+      z-index:0;
     }
   }
 }
