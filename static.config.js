@@ -1,4 +1,4 @@
-// import axios from 'axios'
+import axios from 'axios'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import React from 'react'
 
@@ -54,7 +54,7 @@ export default {
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="/css-blocks.css" />
+        <link rel="stylesheet" href="css-blocks.css" />
       </Head>
       <Body>{children}</Body>
     </Html>
@@ -76,6 +76,49 @@ export default {
     const rewriter = new Rewriter()
     const analyzer = new Analyzer('./src/index.js', jsxCompilationOptions)
     let loaders
+
+    defaultLoaders.cssLoader.exclude = /\.block\..*$/
+
+    loaders = [
+      {
+        loader: 'css-loader',
+        options: {
+          importLoaders: 1,
+          minimize: stage === 'prod',
+          sourceMap: true,
+        },
+      },
+      {
+        loader: 'sass-loader',
+        options: { includePaths: ['src/'] },
+      },
+    ]
+
+    if (stage !== 'node') {
+      if (stage === 'dev') {
+        // Hot reload CSS changes during develop
+        loaders = ['extracted-loader'].concat(ExtractTextPlugin.extract({
+          fallback: {
+            loader: 'style-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          use: loaders,
+        }))
+      } else {
+        // Don't extract css to file during node build process
+        loaders = ExtractTextPlugin.extract({
+          fallback: {
+            loader: 'style-loader',
+            options: {
+              sourceMap: false,
+            },
+          },
+          use: loaders,
+        })
+      }
+    }
 
     const jsxLoader = {
       test: /\.jsx$/,
@@ -105,50 +148,6 @@ export default {
       ],
     }
 
-    loaders = [
-      {
-        loader: 'css-loader',
-        options: {
-          importLoaders: 1,
-          minimize: stage === 'prod',
-          sourceMap: true,
-        },
-      },
-      {
-        loader: 'sass-loader',
-        options: { includePaths: ['src/'] },
-      },
-    ]
-
-    
-    if (stage !== 'node') {
-      if (stage === 'dev') {
-        // Hot reload CSS changes during develop
-        loaders = ['extracted-loader'].concat(ExtractTextPlugin.extract({
-          fallback: {
-            loader: 'style-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          use: loaders,
-        }))
-      } else {
-        // Don't extract css to file during node build process
-        loaders = ExtractTextPlugin.extract({
-          fallback: {
-            loader: 'style-loader',
-            options: {
-              sourceMap: false,
-            },
-          },
-          use: loaders,
-        })
-      }
-    }
-
-    defaultLoaders.cssLoader.exclude = /\.block\..*$/
-
     config.module.rules = [
       {
         oneOf: [
@@ -167,16 +166,14 @@ export default {
       },
     ]
 
-    if (stage === 'dev') {
-      config.plugins.push(new ExtractTextPlugin('style.css'))
-    }
-
     config.plugins.push(new CssBlocksPlugin({
       analyzer,
       outputCssFile: 'css-blocks.css',
       compilationOptions: jsxCompilationOptions.compilationOptions,
       optimization: jsxCompilationOptions.optimization,
     }))
+
+    config.plugins.push(new ExtractTextPlugin('style.css'))
 
     return config
   },

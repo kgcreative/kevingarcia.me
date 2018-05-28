@@ -1,8 +1,8 @@
 .text {
-  color: #333;
-  color: var(--text-color);
+  --text-color: #333;
+  --font-size: 24px;
   max-width: 30em;
-  margin: auto;
+  margin: .5em auto 1em;
   text-align: center;
 }
 
