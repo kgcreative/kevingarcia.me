@@ -1,4 +1,4 @@
-import axios from 'axios'
+// import axios from 'axios'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import React from 'react'
 
@@ -9,13 +9,12 @@ const { CssBlocksPlugin } = require('@css-blocks/webpack')
 const cssBlocksRewriter = require('@css-blocks/jsx/dist/src/transformer/babel')
 
 export default {
-  preact: true,
   getSiteData: () => ({
     title: 'React Static with CSS Blocks',
     siteRoot: '/',
   }),
   getRoutes: async () => {
-    const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    // const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
     return [
       {
         path: '/',
@@ -27,7 +26,7 @@ export default {
         title: 'About',
         component: 'src/containers/About',
       },
-      {
+      /* {
         path: '/blog',
         component: 'src/containers/Blog',
         getData: () => ({
@@ -40,14 +39,16 @@ export default {
             post,
           }),
         })),
-      },
+      }, */
       {
         is404: true,
         component: 'src/containers/404',
       },
     ]
   },
-  Document: ({ Html, Head, Body, children }) => (
+  Document: ({
+    Html, Head, Body, children,
+  }) => (
     // Instance custom html document with link to css-blocks styles
     <Html lang="en-US">
       <Head>
@@ -76,40 +77,7 @@ export default {
     const analyzer = new Analyzer('./src/index.js', jsxCompilationOptions)
     let loaders
 
-    if (stage === 'dev') {
-      loaders = [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }]
-    } else {
-      loaders = [
-        {
-          loader: 'css-loader',
-          options: {
-            importLoaders: 1,
-            minimize: stage === 'prod',
-            sourceMap: true,
-          },
-        },
-        {
-          loader: 'sass-loader',
-          options: { includePaths: ['src/'] },
-        },
-      ]
-
-      // Don't extract css to file during node build process
-      if (stage !== 'node') {
-        loaders = ExtractTextPlugin.extract({
-          fallback: {
-            loader: 'style-loader',
-            options: {
-              sourceMap: true,
-              hmr: true,
-            },
-          },
-          use: loaders,
-        })
-      }
-    }
-
-    let jsxLoader = {
+    const jsxLoader = {
       test: /\.jsx$/,
       exclude: /node_modules/,
       use: [
@@ -137,6 +105,48 @@ export default {
       ],
     }
 
+    loaders = [
+      {
+        loader: 'css-loader',
+        options: {
+          importLoaders: 1,
+          minimize: stage === 'prod',
+          sourceMap: true,
+        },
+      },
+      {
+        loader: 'sass-loader',
+        options: { includePaths: ['src/'] },
+      },
+    ]
+
+    
+    if (stage !== 'node') {
+      if (stage === 'dev') {
+        // Hot reload CSS changes during develop
+        loaders = ['extracted-loader'].concat(ExtractTextPlugin.extract({
+          fallback: {
+            loader: 'style-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          use: loaders,
+        }))
+      } else {
+        // Don't extract css to file during node build process
+        loaders = ExtractTextPlugin.extract({
+          fallback: {
+            loader: 'style-loader',
+            options: {
+              sourceMap: false,
+            },
+          },
+          use: loaders,
+        })
+      }
+    }
+
     defaultLoaders.cssLoader.exclude = /\.block\..*$/
 
     config.module.rules = [
@@ -144,7 +154,9 @@ export default {
         oneOf: [
           {
             test: /\.s(a|c)ss$/,
-            exclude: /\.block\..*$/,
+            exclude: [
+              /\.block\..*$/,
+            ],
             use: loaders,
           },
           defaultLoaders.cssLoader,
@@ -154,13 +166,17 @@ export default {
         ],
       },
     ]
+
+    if (stage === 'dev') {
+      config.plugins.push(new ExtractTextPlugin('style.css'))
+    }
+
     config.plugins.push(new CssBlocksPlugin({
       analyzer,
       outputCssFile: 'css-blocks.css',
       compilationOptions: jsxCompilationOptions.compilationOptions,
       optimization: jsxCompilationOptions.optimization,
     }))
-    config.plugins.push(new ExtractTextPlugin('styles.css'))
 
     return config
   },

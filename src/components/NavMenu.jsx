@@ -9,7 +9,6 @@ class NavMenu extends Component {
       <nav className={styles}>
         <Link exact to="/" className={styles.link}>Home</Link>
         <Link exact to="/about" className={styles.link}>About</Link>
-        <Link exact to="/blog" className={styles.link}>Blog</Link>
       </nav>
     )
   }
