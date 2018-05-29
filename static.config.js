@@ -173,6 +173,9 @@ export default {
       optimization: jsxCompilationOptions.optimization,
     }))
 
+    // By conditionally calling this only on `stage===dev`, we avoid
+    // having double style exports in stage & production builds. I suspect
+    // this is because react-static build stages include this by default?
     if (stage === 'dev') {
       config.plugins.push(new ExtractTextPlugin('style.css'))
     }
