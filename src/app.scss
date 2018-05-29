@@ -8,6 +8,11 @@ $sans-serif-font: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue
   'Lucida Grande', sans-serif;
   --background-color: inherit;
   --text-color: #333;
+  --base-padding: 1em;
+  
+  * {
+    box-sizing: border-box;
+  }
 }
 
 body {
@@ -53,16 +58,34 @@ img {
   max-width: 100%;
 }
 
-.content {
-  padding: 1rem;
+main {
+  overflow: hidden;
+  padding: var(--base-padding);
 }
 
 //typography
-p, h1, h2, h3, h4, h5, h6 {
+p, h2, h3, h4, h5, h6 {
   font-size: var(--font-size);
   font-weight: var(--font-weight);
   color: var(--text-color);
   line-height: var(--line-height);
+  margin-bottom: var(--margin-bottom);
+}
+
+h1 {
+  font-size: 2em; //fallback
+  font-size: var(--font-size);
+
+  font-weight: 400; //fallback
+  font-weight: var(--font-weight);
+
+  color: #333; //fallback
+  color: var(--text-color);
+
+  line-height: 1.2; //fallback
+  line-height: var(--line-height);
+  
+  margin-bottom: 0; //fallback
   margin-bottom: var(--margin-bottom);
 }
 

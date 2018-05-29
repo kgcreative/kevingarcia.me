@@ -23,9 +23,7 @@ const App = () => (
         <header>
           <NavMenu />
         </header>
-        <main className="content">
-          <Routes />
-        </main>
+        <Routes />
       </React.Fragment>
     </Router>
   </React.Fragment>

@@ -54,9 +54,9 @@ export default {
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="css-blocks.css" />
+        <link rel="stylesheet" href="/css-blocks.css" />
       </Head>
-      <Body>{children}</Body>
+      {children}
     </Html>
   ),
   webpack: (config, { defaultLoaders, stage }) => {
@@ -173,7 +173,9 @@ export default {
       optimization: jsxCompilationOptions.optimization,
     }))
 
-    config.plugins.push(new ExtractTextPlugin('style.css'))
+    if (stage === 'dev') {
+      config.plugins.push(new ExtractTextPlugin('style.css'))
+    }
 
     return config
   },
