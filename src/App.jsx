@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Link } from 'react-static'
+import { Router, Link, Head } from 'react-static'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
 import NavMenu from './components/NavMenu'
@@ -12,17 +12,21 @@ import NavMenu from './components/NavMenu'
 //
 // or maybe there's a way to get react-static and webpack's entry points
 // better aligned than they are by default?
-import F04 from "./containers/404.jsx";
-import About from "./containers/About.jsx";
-import Blog from "./containers/Blog.jsx";
-import Home from "./containers/Home.jsx";
-import Post from "./containers/Post.jsx";
+import F04 from './containers/404.jsx'
+import About from './containers/About.jsx'
+import Blog from './containers/Blog.jsx'
+import Home from './containers/Home.jsx'
+import Post from './containers/Post.jsx'
 
-import styles from './app.scss';
+import styles from './app.scss'
 
-// There's probably a better way to get this link tag into the document.
 const App = () => (
   <React.Fragment>
+    <Head>
+        <title>React Static with CSS Blocks</title>
+        <link rel="preload" href="/css-blocks.css" as="style" />
+        <link rel="stylesheet" href="/css-blocks.css" />
+    </Head>
     <Router>
       <React.Fragment>
         <header>

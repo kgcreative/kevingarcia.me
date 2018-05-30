@@ -1,6 +1,7 @@
 import axios from 'axios'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import React from 'react'
+import Helmet from 'react-helmet';
 
 // Import CSS Blocks Plugin, Analyzer & Rewriter
 const { resolveConfiguration } = require('@css-blocks/core')
@@ -28,6 +29,7 @@ export default {
       },
       {
         path: '/blog',
+        title: 'Blog',
         component: 'src/containers/Blog',
         getData: () => ({
           posts,
@@ -49,14 +51,15 @@ export default {
   Document: ({
     Html, Head, Body, children,
   }) => (
-    // Instance custom html document with link to css-blocks styles
+    // Instance custom html document
     <Html lang="en-US">
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="/css-blocks.css" />
       </Head>
-      {children}
+      <Body>
+        {children}
+      </Body>
     </Html>
   ),
   webpack: (config, { defaultLoaders, stage }) => {
