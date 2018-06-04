@@ -7,9 +7,10 @@ class NavMenu extends Component {
   render () {
     return (
       <nav className={styles}>
-        <Link exact to="/" className={styles.link}>Home</Link>
-        <Link exact to="/about" className={styles.link}>About</Link>
-        <Link exact to="/blog" className={styles.link}>Blog</Link>
+        <Link exact to="/" className={styles.link} activeClassName="current">About</Link>
+        <Link to="/portfolio" className={styles.link} activeClassName="current">Portfolio</Link>
+        <Link exact to="/resume" className={styles.link} activeClassName="current">Resume</Link>
+        <Link to="/colophon" className={styles.link} activeClassName="current">Colophon</Link>
       </nav>
     )
   }

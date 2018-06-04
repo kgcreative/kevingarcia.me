@@ -1,7 +1,6 @@
-import axios from 'axios'
+// import axios from 'axios'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import React from 'react'
-import Helmet from 'react-helmet';
 
 // Import CSS Blocks Plugin, Analyzer & Rewriter
 const { resolveConfiguration } = require('@css-blocks/core')
@@ -15,32 +14,27 @@ export default {
     siteRoot: '/',
   }),
   getRoutes: async () => {
-    const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    // const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
     return [
       {
         path: '/',
-        title: 'Home',
-        component: 'src/containers/Home',
-      },
-      {
-        path: '/about',
         title: 'About',
         component: 'src/containers/About',
       },
       {
-        path: '/blog',
-        title: 'Blog',
-        component: 'src/containers/Blog',
-        getData: () => ({
-          posts,
-        }),
-        children: posts.map(post => ({
-          path: `/post/${post.id}`,
-          component: 'src/containers/Post',
-          getData: () => ({
-            post,
-          }),
-        })),
+        path: '/portfolio',
+        title: 'Portfolio',
+        component: 'src/containers/Portfolio',
+      },
+      {
+        path: '/resume',
+        title: 'Resume',
+        component: 'src/containers/Resume',
+      },
+      {
+        path: '/colophon',
+        title: 'Colophon',
+        component: 'src/containers/Colophon',
       },
       {
         is404: true,
@@ -62,6 +56,10 @@ export default {
       </Body>
     </Html>
   ),
+
+  // ————————————————————————————————————————————————————————————————
+  // Webpack Configuration
+
   webpack: (config, { defaultLoaders, stage }) => {
     // Configure CSS Blocks Compilation, rewriter & analyzer options
     const jsxCompilationOptions = {
@@ -180,7 +178,7 @@ export default {
     // having double style exports in stage & production builds. I suspect
     // this is because react-static build stages include this by default?
     if (stage === 'dev') {
-      config.plugins.push(new ExtractTextPlugin('style.css'))
+      config.plugins.push(new ExtractTextPlugin('base-styles.css'))
     }
 
     return config

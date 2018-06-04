@@ -3,13 +3,10 @@
 }
 
 .breadcrumb::after {
-  display: none;
+  
 }
 
 .breadcrumb:hover::after,
 .breadcrumb:focus::after {
-  opacity: 1;
-  display: block;
-  top: inherit;
-  height: 1px;
+  
 }

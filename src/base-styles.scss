@@ -1,0 +1,121 @@
+// While Global styles are an antipattern for component based styles, we do still need some
+// essential styles and custom properties.
+//
+// As such, this is a minimal stylesheet that primarily concerns itself with
+// setting global and scoped custom properties.
+
+// Serif Font
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i');
+$serif-font-family: 'Noto Serif', Georgia, Times, 'Times New Roman', serif;
+
+// SCSS Base Tokens:
+$base-color: hsl(210, 15%, 20%);
+$base-background: transparent;
+$base-link-color: hsl(210, 90%, 40%);
+$base-hover-color: hsl(210, 90%, 30%);
+$base-surface: hsl(210, 15%, 95%);
+$base-spacing: 1rem;
+$base-font-family: $serif-font-family;
+$base-container-width: 80ch;
+$base-border-color: hsl(0, 0%, 66%);
+
+:root {
+/* 
+** This is template for defining the global theme.
+** Changing this values in inherited components WILL NOT PROPAGATE TO THE GLOBAL CONSTANTS.
+** Changing the global theme is achieved via declaring these properties
+** 
+*/
+  --theme-color: #{$base-color};
+  --theme-background: #{$base-background};
+  --theme-border-color: #{$base-border-color};
+  --theme-link-color: #{$base-link-color};
+  --theme-hover-color: #{$base-hover-color};
+  --theme-surface: #{$base-surface};
+  --theme-spacing: #{$base-spacing};
+  --theme-font-family: #{$base-font-family};
+  --theme-container-width: #{$base-container-width};
+}
+
+:root {
+  /*
+  ** System Constants. Using these in components are protected from scope inheritance.
+  ** We also use these as fallbacks so if there isn't a root theme configured, it will default
+  ** to the declared colors.
+  */
+
+  --BASE-COLOR: var(--theme-color, #{$base-color});
+  --BASE-BORDER-COLOR: var(--theme-border-color, #{$base-border-color});
+  --BASE-BACKGROUND: var(--theme-background, #{$base-background});
+  --BASE-LINK-COLOR: var(--theme-link-color, #{$base-link-color});
+  --BASE-HOVER-COLOR: var(--theme-hover-color, #{$base-hover-color});
+  --BASE-SURFACE: var(--theme-surface, #{$base-surface});
+  --BASE-SPACING: var(--theme-spacing, #{$base-spacing});
+  --BASE-FONT-FAMILY: var(--theme-font-family, #{$base-font-family});
+  --BASE-CONTAINER-WIDTH: var(--theme-container-width, $($base-container-width));
+
+  --var-breakpoint: 480px;
+}
+
+:root {
+  font-size: 16px;
+  @media screen and (min-width: 460px) {
+    font-size: 18px;
+  }
+}
+
+*, *::before, *::after {
+  /*
+  ** Never have I ever set box sizing to anything other than border-box.
+  ** Thus, setting it on HTML and inheriting is an extra unnecessary step.
+  */
+  box-sizing: border-box;
+}
+
+body {
+  /*
+  ** Body Styles with fallbacks are set here.
+  */
+  color: $base-color;
+  color: var(--BASE-COLOR);
+
+  background-color: $base-surface;
+  background-color: var(--BASE-SURFACE);
+
+  font-family: $base-font-family;
+  font-family: var(--BASE-FONT-FAMILY);
+
+  margin: 0;
+  margin: 0;
+}
+
+a {
+  color: $base-link-color;
+  color: var(--BASE-LINK-COLOR);
+  text-decoration: none;
+}
+
+a:hover {
+  color: $base-hover-color;
+  color: var(--BASE-HOVER-COLOR);
+}
+
+a:focus {
+  outline-offset: 2px;
+}
+
+.current {
+  font-weight: bold;
+}
+
+main {
+  line-height: 1.75;
+  margin: $base-spacing;
+  margin: var(--BASE-SPACING);
+  overflow: hidden;
+}
+
+body, p, h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  margin-top: 0;
+}

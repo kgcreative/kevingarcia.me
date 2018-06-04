@@ -1,8 +1,8 @@
-import React from 'react'
-import { Router, Link, Head } from 'react-static'
+import React, { Fragment } from 'react'
+import { Router, Head } from 'react-static'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
-import NavMenu from './components/NavMenu'
+import SiteHeader from './components/SiteHeader'
 
 // These have to be imported here for css blocks to find them.
 // I'm not sure what that does to the webpack output.
@@ -14,28 +14,26 @@ import NavMenu from './components/NavMenu'
 // better aligned than they are by default?
 import F04 from './containers/404.jsx'
 import About from './containers/About.jsx'
-import Blog from './containers/Blog.jsx'
-import Home from './containers/Home.jsx'
-import Post from './containers/Post.jsx'
+import Resume from './containers/Resume.jsx'
+import Portfolio from './containers/Portfolio.jsx'
+import Colophon from './containers/Colophon.jsx'
 
-import styles from './app.scss'
+import css from './base-styles.scss'
 
 const App = () => (
-  <React.Fragment>
+  <Fragment>
     <Head>
-        <title>React Static with CSS Blocks</title>
-        <link rel="preload" href="/css-blocks.css" as="style" />
-        <link rel="stylesheet" href="/css-blocks.css" />
+      <title>React Static with CSS Blocks</title>
+      <link rel="preload" href="/css-blocks.css" as="style" />
+      <link rel="stylesheet" href="/css-blocks.css" />
     </Head>
     <Router>
-      <React.Fragment>
-        <header>
-          <NavMenu />
-        </header>
+      <Fragment>
+        <SiteHeader />
         <Routes />
-      </React.Fragment>
+      </Fragment>
     </Router>
-  </React.Fragment>
+  </Fragment>
 )
 
 export default hot(module)(App)
