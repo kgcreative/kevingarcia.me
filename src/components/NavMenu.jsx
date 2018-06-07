@@ -9,7 +9,7 @@ class NavMenu extends Component {
       <nav className={styles}>
         <Link exact to="/" className={styles.link} activeClassName="current">About</Link>
         <Link to="/portfolio" className={styles.link} activeClassName="current">Portfolio</Link>
-        <Link exact to="/resume" className={styles.link} activeClassName="current">Resume</Link>
+        <Link exact to="/resume" className={styles.link} activeClassName="current">R&egrave;sum&egrave;</Link>
         <Link to="/colophon" className={styles.link} activeClassName="current">Colophon</Link>
       </nav>
     )

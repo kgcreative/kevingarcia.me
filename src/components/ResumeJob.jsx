@@ -2,20 +2,28 @@ import React, { Component } from 'react'
 import { Link } from 'react-static'
 
 import styles from './ResumeJob.block.css'
+import HideVisually from './HideVisually'
 
 class ResumeJob extends Component {
   render () {
+    const company = this.props.company
+    const companyURL = this.props.companyURL
+    const location = this.props.location
+    const jobTitle = this.props.jobTitle
+    const employmentDates = this.props.employmentDates
+    const children = this.props.children
+
     return (
       <div className={styles}>
         <hr className={styles.divider} />
         <div className={styles.meta}>
-          <p className={styles.location}><span className={styles.hideVisually}>Location: </span>Santa Clara, CA</p>
-          <p className={styles.dates}><span className={styles.hideVisually}>Dates Employed: </span>September 2017 – Present</p>
+          <p className={styles.location}><HideVisually>Location: </HideVisually>{location}</p>
+          <p className={styles.dates}><HideVisually>Dates Employed: </HideVisually>{employmentDates}</p>
         </div>
         <div className={styles.details}>
-          <h4 className={styles.title}><span className={styles.hideVisually}>Title: </span>Senior UX Designer</h4>
-          <p className={styles.company}><span className={styles.hideVisually}>Company Name: </span><Link to="http://www.jasperwireless.com">Cisco Jasper</Link></p>
-          <div className={styles.description}> <ul> <li>Design lead on a variety of product features and new product initiatives</li> <li>Improve design tools and resources to speed up the design team and make handoff to engineering easier</li> <li>Mentor and train design team members</li> </ul></div>
+          <h4 className={styles.title}><HideVisually>Title: </HideVisually>{jobTitle}</h4>
+          <p className={styles.company}><HideVisually>Company Name: </HideVisually><Link to={companyURL}>{company}</Link></p>
+          <div className={styles.description}>{children}</div>
         </div>
       </div>
     )

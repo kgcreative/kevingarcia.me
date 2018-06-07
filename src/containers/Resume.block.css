@@ -2,29 +2,8 @@
   
 }
 
-.hideVisually {
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(100%);
-  height: 1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.hideVisually:active,
-.hideVisually:focus {
-  clip: auto;
-  clip-path: none;
-  height: auto;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-
 .experience, .education {
-  text-align: left;
+  text-align: center;
   font-size: 1.25em;
   margin-bottom: 0;
   padding-bottom: .5em;

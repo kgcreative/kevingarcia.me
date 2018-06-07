@@ -1,8 +1,15 @@
+@external .current;
+
 :scope {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
   justify-content: flex-start;
+}
+@media print {
+  :scope {
+    display: none;
+  }
 }
 
 .link {

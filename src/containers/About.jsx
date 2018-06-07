@@ -1,12 +1,14 @@
 import React from 'react'
 import { withRouteData, Head } from 'react-static'
-
+import HideVisually from 'components/HideVisually'
 import styles from './About.block.css'
-
 
 export default withRouteData(() => (
   <main className={styles} aria-labelledby="main-content">
-    <h2 id="main-content" className={styles.hideVisually}>Main Content</h2>
+    <Head>
+      <title>About | Kevin Garcia</title>
+    </Head>
+    <HideVisually block><h2 id="main-content">Main Content</h2></HideVisually>
     <h2 className={styles.hello}>Hello!</h2>
     <p>I'm currently a senior user experience designer at <a href="https://www.jasper.com/">Cisco Jasper</a>.</p>
     <p>Some of my past work includes:</p>
