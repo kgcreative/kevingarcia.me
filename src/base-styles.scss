@@ -6,7 +6,10 @@
 
 // Serif Font
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i');
+
 $serif-font-family: 'Noto Serif', Georgia, Times, 'Times New Roman', serif;
+$sans-serif-font-family: 'Noto Sans', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
 
 // SCSS Base Tokens:
 $base-color: hsl(210, 15%, 20%);
@@ -16,8 +19,10 @@ $base-hover-color: hsl(210, 90%, 30%);
 $base-surface: hsl(210, 15%, 95%);
 $base-spacing: 1rem;
 $base-font-family: $serif-font-family;
-$base-container-width: 80ch;
+$base-container-width: 50rem;
 $base-border-color: hsl(0, 0%, 66%);
+
+$breakpoint: 480px;
 
 :root {
 /* 
@@ -34,6 +39,7 @@ $base-border-color: hsl(0, 0%, 66%);
   --theme-surface: #{$base-surface};
   --theme-spacing: #{$base-spacing};
   --theme-font-family: #{$base-font-family};
+  --theme-font-family-secondary: #{$sans-serif-font-family};
   --theme-container-width: #{$base-container-width};
 }
 
@@ -52,14 +58,19 @@ $base-border-color: hsl(0, 0%, 66%);
   --BASE-SURFACE: var(--theme-surface, #{$base-surface});
   --BASE-SPACING: var(--theme-spacing, #{$base-spacing});
   --BASE-FONT-FAMILY: var(--theme-font-family, #{$base-font-family});
+  --BASE-FONT-FAMILY-SECONDARY: var(--theme-font-family-secondary, #{$sans-serif-font-family});
   --BASE-CONTAINER-WIDTH: var(--theme-container-width, $($base-container-width));
 
-  --var-breakpoint: 480px;
+  @media print {
+    --BASE-CONTAINER-WIDTH: 100%;
+  }
 }
+
+
 
 :root {
   font-size: 16px;
-  @media screen and (min-width: 460px) {
+  @media screen and (min-width: $breakpoint) {
     font-size: 18px;
   }
 
@@ -91,6 +102,10 @@ body {
 
   margin: 0;
   margin: 0;
+
+  @media print {
+    margin: .5in;
+  }
 }
 
 a {
@@ -121,9 +136,25 @@ main {
 
 #page-title, #main-content {
   text-align: center;
+
+  @media print {
+    text-align: right;
+    position: absolute;
+    top: .125in;
+    right: .625in;
+  }
 }
 
-body, p, h1, h2, h3, h4, h5, h6 {
+body, p, ul, ol {
   font-weight: 400;
-  margin-top: 0;
+  margin: 0;
+}
+
+p, ul, ol {
+  margin-bottom: var(--BASE-SPACING);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin: 0;
 }

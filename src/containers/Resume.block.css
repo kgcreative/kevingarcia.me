@@ -2,10 +2,13 @@
   
 }
 
-.experience, .education {
-  text-align: center;
-  font-size: 1.25em;
-  margin-bottom: 0;
-  padding-bottom: .5em;
-  margin-top: 1.25em;
+.experience {
+  text-align: left;
+  font-size: 1.25rem;
+  margin: 1.25rem auto .25rem;
+  max-width: var(--BASE-CONTAINER-WIDTH);
+}
+
+.list {
+  margin-top: 0;
 }

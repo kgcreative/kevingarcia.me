@@ -16,18 +16,15 @@ class ResumeJob extends Component {
     return (
       <div className={styles}>
         <hr className={styles.divider} />
+        <p className={styles.company}><HideVisually>Company Name: </HideVisually><Link to={companyURL} className={styles.companyURL}>{company}</Link></p>
+        <h3 className={styles.title}><HideVisually>Title: </HideVisually>{jobTitle}</h3>
         <div className={styles.meta}>
           <p className={styles.location}><HideVisually>Location: </HideVisually>{location}</p>
           <p className={styles.dates}><HideVisually>Dates Employed: </HideVisually>{employmentDates}</p>
         </div>
-        <div className={styles.details}>
-          <h4 className={styles.title}><HideVisually>Title: </HideVisually>{jobTitle}</h4>
-          <p className={styles.company}><HideVisually>Company Name: </HideVisually><Link to={companyURL}>{company}</Link></p>
-          <div className={styles.description}>{children}</div>
-        </div>
+        <div className={styles.details}>{children}</div>
       </div>
     )
   }
 }
-
 export default ResumeJob

@@ -10,7 +10,7 @@ export default withRouteData(() => (
     </Head>
     <HideVisually block><h2 id="main-content">Main Content</h2></HideVisually>
     <h2 className={styles.hello}>Hello!</h2>
-    <p>I'm currently a senior user experience designer at <a href="https://www.jasper.com/">Cisco Jasper</a>.</p>
+    <p>I'm a senior user experience designer at <a href="https://www.jasper.com/">Cisco Jasper</a>, where I bring user-centered design approaches to solve enterprise-scale IOT management problems.</p>
     <p>Some of my past work includes:</p>
     <ul>
       <li>Building the Front-End for the 2017 redesign of the <a href="https://www.stanford.edu">Stanford University Homepage</a>, the <a href="http://identity.stanford.edu/">Stanford Identity Tooklit</a>, and the building blocks for the design system that powers both the homepage, news, and many Stanford subsites.</li>

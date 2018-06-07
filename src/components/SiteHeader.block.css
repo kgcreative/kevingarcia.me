@@ -19,6 +19,12 @@
   z-index: 1;
 }
 
+@media print {
+  :scope {
+    margin-bottom: 1.5rem;
+  }
+}
+
 .title {
   color: var(--theme-color);
   font-size: 28px;
@@ -29,6 +35,12 @@
   margin-bottom: 1rem;
   white-space: nowrap;
   z-index: 0;
+}
+
+@media print {
+  .title {
+    margin-bottom: 0;
+  }
 }
 
 .link {
