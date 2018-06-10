@@ -13,6 +13,7 @@
 }
 
 .link {
+  z-index: 0;
   margin-right: 2ch;
 }
 
