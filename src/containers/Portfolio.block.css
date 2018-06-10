@@ -1,12 +1,3 @@
 :scope {
   
 }
-
-.breadcrumb::after {
-  
-}
-
-.breadcrumb:hover::after,
-.breadcrumb:focus::after {
-  
-}

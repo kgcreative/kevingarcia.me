@@ -1,8 +1,7 @@
 :scope {
-  max-width: 60ch;
+  max-width: var(--BASE-CONTAINER-WIDTH);
   padding: var(--BASE-SPACING);
   margin: 0 auto;
-
 }
 
 .hello {
@@ -10,6 +9,12 @@
   letter-spacing: -1px;
   font-style: italic;
   font-size: 3rem;
-  margin: .75em auto;
+  margin: 2ex auto;
   text-align: center;
+}
+
+@media print {
+  .hello {
+    margin-top: 1ex;
+  }
 }

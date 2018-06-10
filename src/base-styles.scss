@@ -18,8 +18,9 @@ $base-link-color: hsl(210, 90%, 40%);
 $base-hover-color: hsl(210, 90%, 30%);
 $base-surface: hsl(210, 15%, 95%);
 $base-spacing: 1rem;
+$vertical-spacing: 1ex;
 $base-font-family: $serif-font-family;
-$base-container-width: 50rem;
+$base-container-width: 45rem;
 $base-border-color: hsl(0, 0%, 66%);
 
 $breakpoint: 480px;
@@ -58,7 +59,7 @@ $breakpoint: 480px;
   --BASE-SURFACE: var(--theme-surface, #{$base-surface});
   --BASE-SPACING: var(--theme-spacing, #{$base-spacing});
   --BASE-FONT-FAMILY: var(--theme-font-family, #{$base-font-family});
-  --BASE-FONT-FAMILY-SECONDARY: var(--theme-font-family-secondary, #{$sans-serif-font-family});
+  --BASE-FONT-FAMILY-SANS: var(--theme-font-family-secondary, #{$sans-serif-font-family});
   --BASE-CONTAINER-WIDTH: var(--theme-container-width, $($base-container-width));
 
   @media print {
@@ -70,6 +71,7 @@ $breakpoint: 480px;
 
 :root {
   font-size: 16px;
+
   @media screen and (min-width: $breakpoint) {
     font-size: 18px;
   }
@@ -99,9 +101,11 @@ body {
 
   font-family: $base-font-family;
   font-family: var(--BASE-FONT-FAMILY);
+  
+  line-height: 3.5ex;
 
   margin: 0;
-  margin: 0;
+  padding: 0;
 
   @media print {
     margin: .5in;
@@ -109,18 +113,39 @@ body {
 }
 
 a {
-  color: $base-link-color;
-  color: var(--BASE-LINK-COLOR);
+  color: $base-color;
+  color: var(--BASE-COLOR);
   text-decoration: none;
-}
+  position: relative;
+  white-space: nowrap;
 
-a:hover {
-  color: $base-hover-color;
-  color: var(--BASE-HOVER-COLOR);
-}
+  &::after {
+    --bottom: -.5ex;
+    --height: 2px;
+    --transition: all .2s ease-in;
+  }
 
-a:focus {
-  outline-offset: 2px;
+  &::after {
+    background-color: #bee3ff;
+    content: '';
+    height: var(--height);
+    position: absolute;
+    bottom: var(--bottom);
+    left: -.25ch;
+    transition: var(--transition);
+    width: calc(100% + .5ch);
+    border-bottom: 2px solid #5bade4;
+  }
+
+  &:hover::after {
+    --height: calc(100% + 1ex);
+    --transition: all .2s ease-out;
+    z-index: -1;
+  }
+
+  &:focus {
+    outline-offset: 2px;
+  }
 }
 
 .current {
@@ -128,33 +153,42 @@ a:focus {
 }
 
 main {
-  line-height: 1.75;
   margin: $base-spacing;
   margin: var(--BASE-SPACING);
   overflow: hidden;
 }
 
 #page-title, #main-content {
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-style: italic;
+  font-size: 3rem;
+  margin: 2ex auto;
   text-align: center;
 
   @media print {
     text-align: right;
     position: absolute;
-    top: .125in;
+    font-size: 2rem;
+    top: .5in;
     right: .625in;
+    margin: 0;
   }
 }
 
 body, p, ul, ol {
   font-weight: 400;
-  margin: 0;
-}
-
-p, ul, ol {
-  margin-bottom: var(--BASE-SPACING);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  margin: 0;
+}
+
+p, ul, ol, h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2ex;
+}
+
+li {
+  margin-bottom: 1ex;
 }

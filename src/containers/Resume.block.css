@@ -1,14 +1,60 @@
 :scope {
-  
+  --resume-grid: 1fr;
+}
+
+@media screen and (min-width: 600px) {
+  :scope {
+    --resume-grid: minmax(24ch, 1fr) minmax(24ch, 2fr);
+  }
+}
+
+@media print {
+  :scope {
+    --resume-grid: minmax(24ch, 1fr) minmax(24ch, 2fr);
+  }
+}
+
+.sectionTitle {
+  font-family: var(--BASE-FONT-FAMILY-SANS);
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.25rem auto 2.25ex;
+  max-width: var(--BASE-CONTAINER-WIDTH);
+  border-bottom: 1px solid var(--BASE-BORDER-COLOR);
+  padding-bottom: 2ex;
+  page-break-after: avoid;
+  page-break-before: auto;
+}
+
+@media screen and (min-width: 600px) {
+  .sectionTitle {
+    letter-spacing: -1px;
+  }
 }
 
 .experience {
-  text-align: left;
-  font-size: 1.25rem;
-  margin: 1.25rem auto .25rem;
-  max-width: var(--BASE-CONTAINER-WIDTH);
+  margin-bottom: 3ex;
 }
 
 .list {
   margin-top: 0;
+}
+
+.contributions {
+  max-width: var(--BASE-CONTAINER-WIDTH);
+  margin: 0 auto;
+  page-break-inside: avoid;
+  page-break-after: avoid;
+  page-break-before: auto;
+}
+
+.contributionList {
+  display: grid;
+  grid-column-gap: 1rem;
+  grid-template-columns: var(--resume-grid);
+}
+
+.contributionList__item {
+  grid-column-end: -1;
 }

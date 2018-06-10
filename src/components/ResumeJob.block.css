@@ -1,15 +1,3 @@
-:scope {
-  --resume-grid: repeat(1fr);
-  --grid-row-gap: 0;
-}
-
-@media screen and (min-width: 600px) {
-  :scope {
-    --resume-grid: minmax(24ch, 1fr) minmax(24ch, 2fr);
-    --grid-row-gap: .25rem;
-  }
-}
-
 @media print {
   :scope {
     --resume-grid: 2in 1fr 
@@ -17,24 +5,22 @@
 }
 
 :scope {
+  display: grid;
   grid-column-gap: 1rem;
-  grid-row-gap: var(--grid-row-gap);
   grid-template-columns: var(--resume-grid);
   width: auto;
   margin-left: auto;
   margin-right: auto;
-  display: grid;
   float: none;
   max-width: var(--BASE-CONTAINER-WIDTH);
   align-items: baseline;
-  page-break-inside: avoid;
 }
 
 .divider {
   display: block;
   border: none;
-  page-break-before: auto;
-  page-break-after: avoid;
+  page-break-before: avoid;
+  page-break-after: auto;
   grid-column-start: 1;
   grid-column-end: -1;
   margin: .5rem auto 1rem;
@@ -42,22 +28,12 @@
   width: 100%;
 }
 
-.details {
-  page-break-inside: avoid;
-  page-break-after: avoid;
-  page-break-before: avoid;
+:scope:last-child .divider {
+  display: none;
 }
 
 .company {
-  font-size: 1rem;
-  font-weight: 200;
-  text-decoration: none;
-  margin: 0;
-}
-
-.title {
-  margin: 0;
-  font-weight: 700;
+  align-self: baseline;
 }
 
 .meta {
@@ -66,20 +42,54 @@
   page-break-before: avoid;
 }
 
+@media screen and (min-width: 600px) {
+  .meta {
+    transform: translateY(-.75ex);
+  }
+}
+
+
+.details {
+  page-break-inside: avoid;
+  page-break-after: avoid;
+  page-break-before: avoid;
+  grid-column-end: -1;
+}
+
+.organizationName {
+  font-size: 1rem;
+  font-weight: 200;
+  margin-bottom: .125ex
+}
+
+@media screen and (min-width: 600px) {
+  .organizationName {
+    order: -1;
+  }
+}
+
+@media print {
+  .organizationName {
+    order: -1;
+  }
+}
+
+.title {
+  font-weight: 700;
+  margin-bottom: 1ex;
+}
+
 .location {
   font-size: .8em;
-  margin: 0;
-  margin-bottom: .5rem;
+  margin-bottom: 0;
 }
 
 .dates {
   font-size: .8em;
   font-style: italic;
-  margin: 0;
-  margin-bottom: .5rem;
 }
 
-.companyURL {
+.organizationURL {
   color: #333;
 }
 .description {

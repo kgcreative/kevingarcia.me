@@ -6,8 +6,8 @@ import HideVisually from './HideVisually'
 
 class ResumeJob extends Component {
   render () {
-    const company = this.props.company
-    const companyURL = this.props.companyURL
+    const organizationName = this.props.organizationName
+    const organizationURL = this.props.organizationURL
     const location = this.props.location
     const jobTitle = this.props.jobTitle
     const employmentDates = this.props.employmentDates
@@ -15,14 +15,32 @@ class ResumeJob extends Component {
 
     return (
       <div className={styles}>
-        <hr className={styles.divider} />
-        <p className={styles.company}><HideVisually>Company Name: </HideVisually><Link to={companyURL} className={styles.companyURL}>{company}</Link></p>
-        <h3 className={styles.title}><HideVisually>Title: </HideVisually>{jobTitle}</h3>
+        { jobTitle && (
+          <h3 className={styles.title}><HideVisually>Title: </HideVisually>{jobTitle}</h3>
+        ) }
+        { organizationName && (
+          <p className={styles.organizationName}><HideVisually>Organization Name: </HideVisually>
+            { organizationURL ? (
+              <Link to={organizationURL} className={styles.organizationURL}>{organizationName}</Link>
+            ) :
+              <React.Fragment>{organizationName}</React.Fragment>}
+          </p>
+        )}
         <div className={styles.meta}>
-          <p className={styles.location}><HideVisually>Location: </HideVisually>{location}</p>
-          <p className={styles.dates}><HideVisually>Dates Employed: </HideVisually>{employmentDates}</p>
+          { location && (
+            <p className={styles.location}><HideVisually>Location: </HideVisually>{location}</p>
+          ) }
+          { employmentDates && (
+            <p className={styles.dates}>
+              <HideVisually>Dates Employed: </HideVisually>
+              {employmentDates}
+            </p>
+          ) }
         </div>
-        <div className={styles.details}>{children}</div>
+        { children && (
+          <div className={styles.details}>{children}</div>
+        )}
+        <hr className={styles.divider} />
       </div>
     )
   }
