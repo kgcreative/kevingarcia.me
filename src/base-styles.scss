@@ -138,7 +138,8 @@ a {
     border-bottom: 2px solid #5bade4;
 
     @media print {
-      display: none;
+      height: 0;
+      border-bottom: 1px dotted #5bade4;
     }
   }
 
@@ -149,10 +150,6 @@ a {
 
   &:focus {
     outline-offset: 2px;
-  }
-
-  @media print {
-    text-decoration: underline;
   }
 }
 
