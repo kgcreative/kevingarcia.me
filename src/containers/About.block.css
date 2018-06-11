@@ -1,6 +1,9 @@
 :scope {
   max-width: var(--BASE-CONTAINER-WIDTH);
-  padding: var(--BASE-SPACING);
+  padding-top: var(--BASE-SPACING);
+  padding-right: var(--BASE-SPACING);
+  padding-bottom: var(--BASE-SPACING);
+  padding-left: var(--BASE-SPACING);
   margin: 0 auto;
 }
 

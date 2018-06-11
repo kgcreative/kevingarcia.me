@@ -1,3 +1,96 @@
 :scope {
-  
+  --portfolio-grid: 1fr;
+}
+
+@media screen and (min-width: 600px) {
+  :scope {
+    --portfolio-grid: 1fr 1fr 1fr;
+  }
+}
+
+@media print {
+  :scope {
+    --portfolio-grid: 1fr 1fr 1fr;
+  }
+}
+
+:scope {
+  margin: var(--BASE-SPACING) 0;
+}
+
+.section {
+  margin: 4ex auto 3ex;
+  max-width: var(--BASE-CONTAINER-WIDTH);
+  padding-left: var(--BASE-SPACING);
+  padding-right: var(--BASE-SPACING);
+}
+
+.featured {
+  display: block;
+  width: calc(100% - (var(--BASE-SPACING) * 2) );
+  padding: var(--BASE-SPACING);
+  max-width: calc( var(--BASE-CONTAINER-WIDTH) + 16em );
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featuredImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #ccc;
+}
+
+.portfolioGrid {
+  display: grid;
+  grid-column-gap: var(--BASE-SPACING);
+  grid-row-gap: var(--BASE-SPACING);
+  grid-template-columns: var(--portfolio-grid);
+  max-width: var(--BASE-CONTAINER-WIDTH);
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  align-items: baseline;
+  padding: var(--BASE-SPACING);
+}
+
+.portfolioItem {
+  display: block;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  border: 1px solid #999;
+  margin-top: var(--BASE-SPACING);
+}
+
+.wrapper {
+  --ratio-h: 8;
+  --ratio-v: 4;
+}
+.wrapper {
+  float: none;
+  clear: both;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-top: calc( 100% / ( var(--ratio-h) / var(--ratio-v) ) );
+
+}
+
+.portfolioImg {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  height: auto;
+}
+
+.link {
+  display: block;
+  width: 100%;
+  margin-top: .5ex;
+  margin-bottom: .3ex;
 }

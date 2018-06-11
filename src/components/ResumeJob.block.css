@@ -24,7 +24,9 @@
   grid-column-start: 1;
   grid-column-end: -1;
   margin: .5rem auto 1rem;
-  border-bottom: 1px solid var(--BASE-BORDER-COLOR);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--BASE-BORDER-COLOR);
   width: 100%;
 }
 
@@ -92,6 +94,7 @@
 .organizationURL {
   color: #333;
 }
+
 .description {
   display: block;
 }

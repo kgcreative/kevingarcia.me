@@ -1,0 +1,58 @@
+:scope {
+  margin: var(--BASE-SPACING) 0;
+}
+
+.intro, .section {
+  margin: 1.25rem auto 3ex;
+  max-width: var(--BASE-CONTAINER-WIDTH);
+  padding-left: var(--BASE-SPACING);
+  padding-right: var(--BASE-SPACING);
+}
+
+.banner {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.banner__picture {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  min-height: 1em;
+  height: auto;
+  padding-top: 30%;
+}
+
+.banner__picture__img {
+  position: absolute;
+  margin: auto;
+  backface-visibility: hidden;
+  min-width: calc(100% + 1px);
+  min-height: calc(100% + 1px);
+  overflow: hidden;
+  width: auto;
+  height: auto;
+  max-width: calc(100% + 1px);
+  max-height: none;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+}
+
+.featured {
+  display: block;
+  width: calc(100% - (var(--BASE-SPACING) * 2) );
+  padding: var(--BASE-SPACING);
+  max-width: calc( var(--BASE-CONTAINER-WIDTH) + 16em );
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featuredImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}

@@ -16,9 +16,12 @@ import F04 from './containers/404.jsx'
 import About from './containers/About.jsx'
 import Resume from './containers/Resume.jsx'
 import Portfolio from './containers/Portfolio.jsx'
+import StanfordRedesign from './containers/portfolio/StanfordRedesign.jsx'
+import SeafoodWatch from './containers/portfolio/SeafoodWatch.jsx'
+import AutomationAuditTrail from './containers/portfolio/ControlCenter.jsx'
 import Colophon from './containers/Colophon.jsx'
 
-import css from './base-styles.scss'
+import styles from './base-styles.scss'
 
 const App = () => (
   <Fragment>

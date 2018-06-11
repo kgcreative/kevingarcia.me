@@ -1,6 +1,6 @@
-
 import React from 'react'
 import { withRouteData, Head, Link } from 'react-static'
+import HideVisually from 'components/HideVisually'
 import ResumeJob from '../components/ResumeJob'
 import styles from './Resume.block.css'
 
@@ -47,7 +47,7 @@ export default withRouteData(() => (
         employmentDates="April 2013 &mdash; February 2016">
         <ul className={styles.list}>
           <li><Link to="http://www.montereybayaquarium.org/styleguide/grid-marionette">Extended</Link> and <Link to="http://www.montereybayaquarium.org/styleguide/item-grid">added</Link> to the class-based <Link to="http://www.montereybayaquarium.org/styleguide/grid-skeleton">front-end framework</Link> of the Monterey Bay Aquarium and Seafood Watch sites to allow for more granular responsive control</li>
-          <li>Designed and produceed the Monterey Bay Aquarium E-News, as well as other e-mail and social media campaigns and microsites</li>
+          <li>Designed and produced the Monterey Bay Aquarium E-News, as well as other e-mail and social media campaigns and microsites</li>
         </ul>
       </ResumeJob>
       <ResumeJob
@@ -80,9 +80,23 @@ export default withRouteData(() => (
         </ul>
       </ResumeJob>
     </section>
+    <section aria-labelledby="#education" className={styles.education}>
+      <h2 id="#education" className={styles.sectionTitle}>Education</h2>
+      <div className={styles.resumeDegree}>
+        <h3 className={styles.degree}><HideVisually>Degree: </HideVisually>B.A. Visual Art</h3>
+        <p className={styles.organizationName}><HideVisually>College: </HideVisually>
+          <Link to="http://www.andrews.edu" className={styles.organizationURL}>Andrews University</Link>
+        </p>
+        <div className={styles.meta}>
+          <p className={styles.location}><HideVisually>Location: </HideVisually>Berrien Springs, MI</p>
+          <p className={styles.dates}><HideVisually>Graduation Date: </HideVisually>December 2006</p>
+        </div>
+        <div className={styles.details}>Empahis on Graphic Design, Photography, Media Arts and Journalism</div>
+      </div>
+    </section>
     <section aria-labelledby="#open-source" className={styles.contributions}>
       <h2 id="#open-source" className={styles.sectionTitle}>Contributions to Open Source</h2>
-      <p>Whenever I use a framework, library or project, I look to not just consume the project, but make meaningful contributions where appropriate. The projects below are some where I've either found gaps in features, improved methods or ways to simplify functions, or added or created features I wished existed in the core projects.</p>
+      <p>Whenever I use a framework, library or project, I look to not just consume the project, but make meaningful contributions where appropriate. The projects below are some where I've either found gaps in features, improved methods or ways to simplify functions, updated documentation in places where I tripped up or felt the docs were unclear, or added features I wished existed in the core projects.</p>
       <ul className={styles.contributionList}>
         <li className={styles.contributionList__item}><Link to="https://github.com/thoughtbot/neat/commits?author=kgcreative">Bourbon Neat</Link></li>
         <li className={styles.contributionList__item}><Link to="https://www.npmjs.com/package/neat-omega">Neat Omega</Link></li>

@@ -8,13 +8,17 @@
 
 :scope {
   background-color: var(--theme-surface-color);
-  border-bottom: 1px solid var(--theme-border-color);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--BASE-BORDER-COLOR);
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
   justify-content: space-between;
   overflow: hidden;
-  padding: var(--theme-spacing);
+  padding-top: var(--theme-spacing);
+  padding-left: var(--theme-spacing);
+  padding-right: var(--theme-spacing);
   padding-bottom: 1ex;
   z-index: 1;
 }

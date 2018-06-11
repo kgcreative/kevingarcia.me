@@ -1,0 +1,26 @@
+:scope {
+  margin: var(--BASE-SPACING) 0;
+}
+
+.section {
+  margin: 4ex auto 3ex;
+  max-width: var(--BASE-CONTAINER-WIDTH);
+  padding-left: var(--BASE-SPACING);
+  padding-right: var(--BASE-SPACING);
+}
+
+.featured {
+  display: block;
+  width: calc(100% - (var(--BASE-SPACING) * 2) );
+  padding: var(--BASE-SPACING);
+  max-width: calc( var(--BASE-CONTAINER-WIDTH) + 16em );
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featuredImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #ccc;
+}

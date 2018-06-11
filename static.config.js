@@ -27,6 +27,21 @@ export default {
         component: 'src/containers/Portfolio',
       },
       {
+        path: '/portfolio/stanford-redesign',
+        title: 'Stanford Redesign',
+        component: 'src/containers/portfolio/StanfordRedesign',
+      },
+      {
+        path: '/portfolio/seafood-watch',
+        title: 'Refining the SeafoodWatch search experience',
+        component: 'src/containers/portfolio/SeafoodWatch',
+      },
+      {
+        path: '/portfolio/control-center',
+        title: 'Control Center',
+        component: 'src/containers/portfolio/ControlCenter',
+      },
+      {
         path: '/resume',
         title: 'Resume',
         component: 'src/containers/Resume',
