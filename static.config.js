@@ -9,7 +9,7 @@ const { CssBlocksPlugin } = require('@css-blocks/webpack')
 const cssBlocksRewriter = require('@css-blocks/jsx/dist/src/transformer/babel')
 
 export default {
-  siteRoot: '/',
+  siteRoot: 'https://www.kevingarcia.me/',
   getSiteData: () => ({
     title: 'React Static with CSS Blocks',
     siteRoot: '/',
