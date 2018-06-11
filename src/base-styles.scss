@@ -136,6 +136,10 @@ a {
     width: calc(100% + .5ch);
     z-index: -1;
     border-bottom: 2px solid #5bade4;
+
+    @media print {
+      display: none;
+    }
   }
 
   &:hover::after {
@@ -145,6 +149,10 @@ a {
 
   &:focus {
     outline-offset: 2px;
+  }
+
+  @media print {
+    text-decoration: underline;
   }
 }
 
