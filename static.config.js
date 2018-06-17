@@ -10,7 +10,6 @@ const cssBlocksRewriter = require('@css-blocks/jsx/dist/src/transformer/babel')
 
 export default {
   siteRoot: 'https://www.kevingarcia.me/',
-  preact: 'true',
   getSiteData: () => ({
     title: 'React Static with CSS Blocks',
     siteRoot: '/',
