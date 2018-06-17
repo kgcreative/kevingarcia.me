@@ -3,31 +3,62 @@
   --theme-link-color: hsl(0, 0%, 0%);
   --theme-hover-color: hsl(210, 90%, 30%);
   --theme-spacing: 2.25ex;
-  --theme-border-color: hsl(0, 0%, 75%);
+  --theme-border-color: hsl(0, 0%, 85%);
 }
 
 :scope {
-  background-color: var(--theme-surface-color);
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: var(--BASE-BORDER-COLOR);
-  display: flex;
   align-items: baseline;
+  background: var(--BASE-LINK-COLOR);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 calc(100% - 2vw)
+  );
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   overflow: hidden;
   padding-top: var(--theme-spacing);
   padding-left: var(--theme-spacing);
   padding-right: var(--theme-spacing);
-  padding-bottom: 1ex;
+  padding-bottom: 2vw;
+  position: relative;
   z-index: 1;
+}
+
+:scope::after {
+  background-color: var(--theme-surface-color);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 calc(100% - .75vw)
+  );
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -2vw;
+  height: 100%;
+  width: 100%;
+  display: block;
+  z-index: -1;
 }
 
 @media print {
   :scope {
     padding-top: 0;
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--theme-border-color);
+    clip-path: none;
   }
+
+  :scope::after {
+    display: none;
+  }
+
 }
 
 .title {
@@ -53,5 +84,5 @@
 }
 
 .link:hover::after {
-  --height: calc(100% + 1.75ex);
+  --height: calc(100% - 1.5ex);
 }
