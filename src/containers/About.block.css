@@ -1,5 +1,5 @@
-@media print {
-  .hello {
-    margin-top: 1ex;
-  }
+:scope {
+  max-width: var(--BASE-CONTAINER-WIDTH);
+  margin-left: auto;
+  margin-right: auto;
 }
