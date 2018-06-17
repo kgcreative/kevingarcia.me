@@ -8,13 +8,7 @@
 
 :scope {
   align-items: baseline;
-  background: var(--BASE-LINK-COLOR);
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 100%,
-    0 calc(100% - 2vw)
-  );
+  background: var(--theme-surface-color);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -22,27 +16,43 @@
   padding-top: var(--theme-spacing);
   padding-left: var(--theme-spacing);
   padding-right: var(--theme-spacing);
-  padding-bottom: 2vw;
-  position: relative;
-  z-index: 1;
+  border-bottom-color: var(--BASE-LINK-COLOR);
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
 }
 
-:scope::after {
-  background-color: var(--theme-surface-color);
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 100%,
-    0 calc(100% - .75vw)
-  );
-  content: '';
-  position: absolute;
-  left: 0;
-  top: -2vw;
-  height: 100%;
-  width: 100%;
-  display: block;
-  z-index: -1;
+@supports (clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - .75vw))) {
+  :scope {
+    background: var(--BASE-LINK-COLOR);
+    border-bottom: none;
+    padding-bottom: 6vw;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      0 calc(100% - 5vw)
+    );
+    position: relative;
+    z-index: 1;
+  }
+
+  :scope::after {
+    background-color: var(--theme-surface-color);
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 1vw),
+      0 calc(100% - 4vw)
+    );
+    content: '';
+    display: block;
+    left: 0;
+    top: -2.75vw;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
 }
 
 @media print {
@@ -78,11 +88,5 @@
 }
 
 .link::after {
-  top: -1.25ex;
-  left: -.5ch;
-  width: calc(100% + 1ch);
-}
-
-.link:hover::after {
-  --height: calc(100% - 1.5ex);
+  content: initial;
 }

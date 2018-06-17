@@ -4,12 +4,11 @@ import HideVisually from 'components/HideVisually'
 import styles from './About.block.css'
 
 export default withRouteData(() => (
-  <main className={styles} aria-labelledby="main-content">
+  <main className={styles} aria-labelledby="#page-title">
     <Head>
       <title>About | Kevin Garcia</title>
     </Head>
-    <HideVisually block><h2 id="main-content">Main Content</h2></HideVisually>
-    <h2 className={styles.hello}>Hello!</h2>
+    <h1 id="page-title">Hello!</h1>
     <p>I'm a senior user experience designer at <a href="https://www.jasper.com/">Cisco Jasper</a>, where I bring user-centered design approaches to solve enterprise-scale IOT management problems.</p>
     <p>Some of my past work includes:</p>
     <ul>

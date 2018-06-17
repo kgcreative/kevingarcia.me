@@ -158,9 +158,16 @@ a {
 }
 
 main {
-  margin: $base-spacing;
-  margin: var(--BASE-SPACING);
+  margin: 0;
+  padding-left: 1ex;
+  padding-right: 1ex;
+  padding-left: var(--BASE-SPACING);
+  padding-right: var(--BASE-SPACING);
   overflow: hidden;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 #page-title, #main-content {

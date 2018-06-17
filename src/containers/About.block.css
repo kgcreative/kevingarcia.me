@@ -1,21 +1,3 @@
-:scope {
-  max-width: var(--BASE-CONTAINER-WIDTH);
-  padding-top: var(--BASE-SPACING);
-  padding-right: var(--BASE-SPACING);
-  padding-bottom: var(--BASE-SPACING);
-  padding-left: var(--BASE-SPACING);
-  margin: 0 auto;
-}
-
-.hello {
-  font-weight: 600;
-  letter-spacing: -1px;
-  font-style: italic;
-  font-size: 3rem;
-  margin: 2ex auto;
-  text-align: center;
-}
-
 @media print {
   .hello {
     margin-top: 1ex;
