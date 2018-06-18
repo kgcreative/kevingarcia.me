@@ -1,5 +1,5 @@
 :scope {
-  margin: var(--BASE-SPACING) 0;
+  padding: 0;
 }
 
 .intro, .section {

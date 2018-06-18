@@ -1,6 +1,8 @@
 :scope {
-  margin: var(--BASE-SPACING) 0;
+  margin: 0;
+  padding: 0;
 }
+
 .intro, .section, .curtainReveal, .microInteractions {
   margin: 1.25rem auto 3ex;
   max-width: var(--BASE-CONTAINER-WIDTH);

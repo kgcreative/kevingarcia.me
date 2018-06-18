@@ -32,7 +32,6 @@ const App = () => (
     </Head>
     <Router>
       <Fragment>
-        <SiteHeader />
         <Routes />
       </Fragment>
     </Router>

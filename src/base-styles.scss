@@ -71,8 +71,13 @@ $breakpoint: 480px;
 
 :root {
   font-size: 16px;
+  transition: font-size .25s ease-in-out;
 
   @media screen and (min-width: $breakpoint) {
+    font-size: 17px;
+  }
+
+  @media screen and (min-width: ($breakpoint * 2)) {
     font-size: 18px;
   }
 

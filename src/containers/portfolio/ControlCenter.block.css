@@ -1,5 +1,5 @@
 :scope {
-  margin: var(--BASE-SPACING) 0;
+  padding: 0;
 }
 
 .section {
@@ -11,8 +11,9 @@
 
 .featured {
   display: block;
-  width: calc(100% - (var(--BASE-SPACING) * 2) );
-  padding: var(--BASE-SPACING);
+  padding-left: var(--BASE-SPACING);
+  padding-right: var(--BASE-SPACING);
+  width: 100%;
   max-width: calc( var(--BASE-CONTAINER-WIDTH) + 16em );
   margin-left: auto;
   margin-right: auto;

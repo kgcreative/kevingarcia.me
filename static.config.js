@@ -1,4 +1,7 @@
-// import axios from 'axios'
+import { reloadRoutes } from 'react-static/node'
+// import jdown from 'jdown'
+// import chokidar from 'chokidar'
+
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import React from 'react'
 
@@ -8,49 +11,43 @@ const { Rewriter, Analyzer } = require('@css-blocks/jsx')
 const { CssBlocksPlugin } = require('@css-blocks/webpack')
 const cssBlocksRewriter = require('@css-blocks/jsx/dist/src/transformer/babel')
 
+// chokidar.watch('content').on('all', () => reloadRoutes());
+
 export default {
   siteRoot: 'https://www.kevingarcia.me/',
   preact: 'true',
   getSiteData: () => ({
     title: 'React Static with CSS Blocks',
-    siteRoot: '/',
   }),
   getRoutes: async () => {
-    // const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    // const { posts } = await jdown('content')
     return [
       {
         path: '/',
-        title: 'About',
         component: 'src/containers/About',
       },
       {
         path: '/portfolio',
-        title: 'Portfolio',
         component: 'src/containers/Portfolio',
       },
       {
         path: '/portfolio/stanford-redesign',
-        title: 'Stanford Redesign',
         component: 'src/containers/portfolio/StanfordRedesign',
       },
       {
         path: '/portfolio/seafood-watch',
-        title: 'Refining the SeafoodWatch search experience',
         component: 'src/containers/portfolio/SeafoodWatch',
       },
       {
         path: '/portfolio/control-center',
-        title: 'Control Center',
         component: 'src/containers/portfolio/ControlCenter',
       },
       {
         path: '/resume',
-        title: 'Resume',
         component: 'src/containers/Resume',
       },
       {
         path: '/colophon',
-        title: 'Colophon',
         component: 'src/containers/Colophon',
       },
       {
