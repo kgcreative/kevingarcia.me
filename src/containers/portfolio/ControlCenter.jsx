@@ -49,10 +49,10 @@ export default withRouteData(() => (
         <img src={initialToolbar} className={styles.featuredImg} alt="Control Center Toolbar Analysis" />
       </picture>
       <section className={styles.section}>
-        <p>By just reducing the toolbar icons from a horizontal list to a vertical list, we reduce the cognitive load substancially while minimizing scanning behavior.</p>
+        <p>By just reducing the toolbar icons from a horizontal list to a vertical list, we substantially reduce the cognitive load while minimizing horizontal scanning.</p>
         <p>Changing the actions from a horizontal list to a vertical list also removes the need for iconography as separators.</p>
         <p>Continuing to iterate, grouping Export with Refresh removes another decision point and helps visually group those actions. This reduces the number of decisions to a manageable level</p>
-        <p>The final result is a more streamlined toolbar that gives our users access to a more scanable set of actions when it's relevant, but that stays out of their way otherwise, allowing them to more quickly perform their day-to-day tasks.</p>
+        <p>The final result is a more streamlined toolbar that gives our users access to a more scannable set of actions when it's relevant, allowing them to perform their day-to-day tasks more quickly.</p>
       </section>
       <picture className={styles.featured}>
         <img src={redesignedToolbar} className={styles.featuredImg} alt="Control Center Toolbar Redesign" />
