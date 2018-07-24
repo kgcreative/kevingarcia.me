@@ -11,6 +11,8 @@ class ResumeJob extends Component {
     const location = this.props.location
     const jobTitle = this.props.jobTitle
     const employmentDates = this.props.employmentDates
+    const startDate = this.props.startDate
+    const endDate = this.props.endDate
     const children = this.props.children
 
     return (
@@ -36,6 +38,12 @@ class ResumeJob extends Component {
               {employmentDates}
             </p>
           ) }
+          { startDate && (
+            <p className={styles.dates}>
+              <HideVisually>Dates Employed: </HideVisually>
+              {startDate} { endDate && ( <React.Fragment> &ndash; {endDate}</React.Fragment> ) }
+            </p>
+          )}
         </div>
         { children && (
           <div className={styles.details}>{children}</div>

@@ -5,6 +5,53 @@ import HideVisually from 'components/HideVisually'
 import ResumeJob from '../components/ResumeJob'
 import styles from './Resume.block.css'
 
+const jobs = [
+  {
+    organization: {
+      name: 'Cisco Jasper',
+      url: 'http://www.jasper.com',
+      location: 'Santa Clara, CA',
+    },
+    title: 'Senior UX Designer',
+    startDate: 'September 2017',
+    endDate: 'Present',
+    responsibilities: '<ul><li>Leverage user, technical account manager and PM feedback to continuously improve our platform\'s Analytics, Automation, Notification and Audit engines.</li><li>Ongoing work to improve design tools, libraries and resources, resulting in increased design team velocity and increased quality of engineering handoffs.</li><li>Mentor and train design team members</li></ul>',
+  },
+  {
+    organization: {
+      name: 'Stanford University',
+      url: 'http://www.stanford.edu',
+      location: 'Stanford, CA',
+    },
+    title: 'Front End Designer/Developer',
+    startDate: 'February 2016',
+    endDate: 'August 2017',
+    responsibilities: '<ul><li>Built a proof-of-concept microsite for the Presidential Inauguration</li><li>This became the basis of for <a href="https://github.com/SU-SWS/decanter">Decanter</a>, an open-source scss framework which powers the main Stanford Website, the redesigned Identity Site, and the next generation of Drupal Sites built by Stanford Web Services</li><li>The front-end work on the stanford.edu site resulted in new features and extensions to the <a href="http://neat.bourbon.io">Neat</a> open source grid framework</li><li>Using Decanter, built the front-end for the <a href="http://muledesign.com/2017/07/a-fresh-face-for-the-farm">redesigned</a> <a href="https://www.stanford.edu">Stanford.edu</a> and <a href="https://identity.stanford.edu/beta">Identity Toolkit</a></li><li>Art-directed and built <a href="http://news.stanford.edu/features/2016/alaska/">a</a> <a href="http://news.stanford.edu/features/2016/slac/">variety</a> <a href="http://news.stanford.edu/2016/06/07/stroll-bowes-art-architecture-library/">of</a> <a href="http://news.stanford.edu/2016/08/24/election-2016/">digital</a> <a href="http://news.stanford.edu/2016/12/20/meet-stanford-faculty/">storytelling</a> <a href="http://news.stanford.edu/2016/06/20/entrepreneurship-at-stanford/">packages</a> for <a href="http://news.stanford.edu">Stanford News</a></li><li>Core member of the UX Community of Practice, where we share best practices, institutional knowledge and share resources with our peer UX practitioners</li></ul>',
+  },
+  {
+    organization: {
+      name: 'Monterey Bay Aquarium',
+      url: 'http://www.montereybayaquarium.org',
+      location: 'Pacific Grove, CA',
+    },
+    title: 'Front End Designer',
+    startDate: 'April 2013',
+    endDate: 'February 2016',
+    responsibilities: '<ul><li><a href="http://www.montereybayaquarium.org/styleguide/grid-marionette">Extended</a> and <a href="http://www.montereybayaquarium.org/styleguide/item-grid">added</a> to the class-based <a href="http://www.montereybayaquarium.org/styleguide/grid-skeleton">front-end framework</a> of the Monterey Bay Aquarium and Seafood Watch sites to allow for more granular responsive control</li><li>Designed and produced the Monterey Bay Aquarium E-News, as well as other e-mail and social media campaigns and microsites</li></ul>',
+  },
+  {
+    organization: {
+      name: 'Cal State Monterey Bay',
+      url: 'http://www.csumb.edu',
+      location: 'Seaside, CA',
+    },
+    title: 'Art Director',
+    'startDate': 'December 2008',
+    'endDate': 'April 2013',
+    responsibilities: '<h4>Branding &amp; Art Direction:</h4><ul><li>Shaped and defined the graphic elements of brand identity at both the master brand and sub-brand levels, while managing the associated digital assets</li><li>Provided expertise in the development and evaluation of effective communication design strategies</li><li>Provided lead art direction to other staff designers, student assistants and interns</li></ul><h4>Web:</h4><ul><li>Provided art-direction for the redesign of csumb.edu, including site architecture for department subsites, at both template and sub-site levels</li><li>Assisted in building and maintaining style sheets, protocols and workflow within an enterprise-wide CMS</li><li>Conducted weekly and on-call training and assistance for campus users</li><li>Advised and assisted management on the development of overall web and social media policies, procedures and standards</li></ul><h4>Print:</h4><ul><li>Art Directed print publications such as catalogs, event invitations, booklets, newsletters, posters, flyers, brochures and other university collateral materials</li><li>Maintained the university photo, media and asset library</li></ul><h4>Photography:</h4><ul><li>Provided Event, environmental and portrait photography services</li></ul>',
+  },
+]
+
 export default withRouteData(() => (
   <React.Fragment>
     <Head>
@@ -15,73 +62,17 @@ export default withRouteData(() => (
       <h1 id="page-title">R&egrave;sum&egrave;</h1>
       <section aria-labelledby="#experience" className={styles.experience}>
         <h2 id="#experience" className={styles.sectionTitle}>Recent Experience</h2>
-        <ResumeJob
-          organizationName="Cisco Jasper"
-          organizationURL="http://www.jasper.com"
-          location="Santa Clara, CA"
-          jobTitle="Senior UX Designer"
-          employmentDates="September 2017 &mdash; Present">
-          <ul className={styles.list}>
-            <li>Leverage user, technical account manager and PM feedback to continuously improve our platform's Analytics, Automation, Notification and Audit engines.</li>
-            <li>Ongoing work to improve design tools, libraries and resources, resulting in increased design team velocity and increased quality of engineering handoffs.</li>
-            <li>Mentor and train design team members</li>
-          </ul>
-        </ResumeJob>
-        <ResumeJob
-          organizationName="Stanford University"
-          organizationURL="http://www.stanford.edu"
-          location="Stanford, CA"
-          jobTitle="Front End Designer/Developer"
-          employmentDates="February 2016 &mdash; August 2017">
-          <ul className={styles.list}>
-            <li>Built a proof-of-concept microsite for the Presidential Inauguration</li>
-            <li>This became the basis of for <Link to='https://github.com/SU-SWS/decanter'>Decanter</Link>, an open-source scss framework which powers the main Stanford Website, the redesigned Identity Site, and the next generation of Drupal Sites built by Stanford Web Services</li>
-            <li>The front-end work on the stanford.edu site resulted in new features and extensions to the <Link to="http://neat.bourbon.io">Neat</Link> open source grid framework</li>
-            <li>Using Decanter, built the front-end for the <Link to='http://muledesign.com/2017/07/a-fresh-face-for-the-farm'>redesigned</Link> <Link to='https://www.stanford.edu'>Stanford.edu</Link> and <Link to='https://identity.stanford.edu/beta'>Identity Toolkit</Link></li>
-            <li>Art-directed and built <Link to='http://news.stanford.edu/features/2016/alaska/'>a</Link> <Link to='http://news.stanford.edu/features/2016/slac/'>variety</Link> <Link to='http://news.stanford.edu/2016/06/07/stroll-bowes-art-architecture-library/'>of</Link> <Link to='http://news.stanford.edu/2016/08/24/election-2016/'>digital</Link> <Link to='http://news.stanford.edu/2016/12/20/meet-stanford-faculty/'>storytelling</Link> <Link to='http://news.stanford.edu/2016/06/20/entrepreneurship-at-stanford/'>packages</Link> for <Link to='http://news.stanford.edu'>Stanford News</Link></li>
-            <li>Core member of the UX Community of Practice, where we share best practices, institutional knowledge and share resources with our peer UX practitioners</li>
-          </ul>
-        </ResumeJob>
-        <ResumeJob
-          organizationName="Monterey Bay Aquarium"
-          organizationURL="http://www.montereybayaquarium.org"
-          location="Monterey, CA"
-          jobTitle="Front End Designer"
-          employmentDates="April 2013 &mdash; February 2016">
-          <ul className={styles.list}>
-            <li><Link to="http://www.montereybayaquarium.org/styleguide/grid-marionette">Extended</Link> and <Link to="http://www.montereybayaquarium.org/styleguide/item-grid">added</Link> to the class-based <Link to="http://www.montereybayaquarium.org/styleguide/grid-skeleton">front-end framework</Link> of the Monterey Bay Aquarium and Seafood Watch sites to allow for more granular responsive control</li>
-            <li>Designed and produced the Monterey Bay Aquarium E-News, as well as other e-mail and social media campaigns and microsites</li>
-          </ul>
-        </ResumeJob>
-        <ResumeJob
-          organizationName="Cal State Monterey Bay"
-          organizationURL="http://www.csumb.edu"
-          location="Monterey, CA"
-          jobTitle="Art Director"
-          employmentDates="December 2008 &mdash; April 2013">
-          <h4>Branding &amp; Art Direction:</h4>
-          <ul className={styles.list}>
-            <li>Shaped and defined the graphic elements of brand identity at both the master brand and sub-brand levels, while managing the associated digital assets</li>
-            <li>Provided expertise in the development and evaluation of effective communication design strategies</li>
-            <li>Provided lead art direction to other staff designers, student assistants and interns</li>
-          </ul>
-          <h4>Web:</h4>
-          <ul className={styles.list}>
-            <li>Provided art-direction for the redesign of CSUMB.EDU, including site architecture for department subsites, at both template and sub-site levels</li>
-            <li>Assisted in building and maintaining style sheets, protocols and workflow within an enterprise-wide CMS</li>
-            <li>Conducted weekly and on-call training and assistance for campus users</li>
-            <li>Advised and assisted management on the development of overall web and social media policies, procedures and standards</li>
-          </ul>
-          <h4>Print:</h4>
-          <ul className={styles.list}>
-            <li>Art Directed print publications such as catalogs, event invitations, booklets, newsletters, posters, flyers, brochures and other university collateral materials</li>
-            <li>Maintained the university photo, media and asset library</li>
-          </ul>
-          <h4>Photography:</h4>
-          <ul className={styles.list}>
-            <li>Provided Event, environmental and portrait photography services</li>
-          </ul>
-        </ResumeJob>
+        {jobs.map((job, index) => (
+          <ResumeJob key={index}
+            organizationName={job.organization.name}
+            organizationURL={job.organization.url}
+            location={job.organization.location}
+            jobTitle={job.title}
+            startDate={job.startDate}
+            endDate={job.endDate}>
+            <div className={styles.responsibilities} dangerouslySetInnerHTML={{ __html: job.responsibilities }} />
+          </ResumeJob>
+        ))}
       </section>
       <section aria-labelledby="#education" className={styles.education}>
         <h2 id="#education" className={styles.sectionTitle}>Education</h2>
