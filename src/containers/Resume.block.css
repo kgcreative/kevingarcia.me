@@ -26,9 +26,13 @@
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: var(--BASE-BORDER-COLOR);
-  padding-bottom: 2ex;
+  padding-bottom: 1ex;
   page-break-after: avoid;
   page-break-before: auto;
+  page-break-inside: avoid;
+  break-before: auto;
+  break-after: avoid;
+  break-inside: avoid;
 }
 
 @media screen and (min-width: 600px) {
@@ -50,12 +54,18 @@
   page-break-inside: avoid;
   page-break-after: avoid;
   page-break-before: auto;
+  break-inside: avoid;
+  break-after: avoid;
+  break-before: auto;
 }
 
 .education {
   page-break-inside: avoid;
   page-break-after: avoid;
   page-break-before: auto;
+  break-inside: avoid;
+  break-after: avoid;
+  break-before: auto;
 }
 
 .resumeDegree {
@@ -73,6 +83,9 @@
   page-break-inside: avoid;
   page-break-after: avoid;
   page-break-before: avoid;
+  break-inside: avoid;
+  break-after: avoid;
+  break-before: avoid;
   grid-column-end: -1;
 }
 

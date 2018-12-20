@@ -82,7 +82,7 @@ $breakpoint: 480px;
   }
 
   @media print {
-    font-size: 12px;
+    font-size: 10pt;
   }
 }
 
@@ -114,6 +114,7 @@ body {
 
   @media print {
     margin: .5in;
+    margin-top: .25in;
   }
 }
 
@@ -169,6 +170,10 @@ main {
   padding-left: var(--BASE-SPACING);
   padding-right: var(--BASE-SPACING);
   overflow: hidden;
+
+  @media print {
+    padding: 0;
+  }
 }
 
 #root {
@@ -188,8 +193,8 @@ main {
     text-align: right;
     position: absolute;
     font-size: 2rem;
-    top: .5in;
-    right: .625in;
+    top: .23in;
+    right: .5in;
     margin: 0;
   }
 }
@@ -210,4 +215,6 @@ p, ul, ol, h1, h2, h3, h4, h5, h6 {
 
 li {
   margin-bottom: 1ex;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }

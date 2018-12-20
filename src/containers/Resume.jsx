@@ -15,7 +15,12 @@ const jobs = [
     title: 'Senior UX Designer',
     startDate: 'September 2017',
     endDate: 'Present',
-    responsibilities: '<ul><li>Leverage user, technical account manager and PM feedback to continuously improve our platform\'s Analytics, Automation, Notification and Audit engines.</li><li>Ongoing work to improve design tools, libraries and resources, resulting in increased design team velocity and increased quality of engineering handoffs.</li><li>Mentor and train design team members</li></ul>',
+    responsibilities: `
+    <ul>
+      <li>Helped grow the Control Center IoT platform as it scaled from 17 million to over 120 million devices under management, supporting 60+ service providers and over 20,000 enterprises worldwide.</li>
+      <li>Partnered closely with PM and Engineering to continuously improve the platform's UI, Analytics, Automation, Notification, Audit and Billing offerings.</li>
+      <li>Ongoing work to improve design tools, libraries and resources, resulting in increased design team velocity and increased quality of engineering handoffs.</li>
+    </ul>`,
   },
   {
     organization: {
@@ -26,7 +31,13 @@ const jobs = [
     title: 'Front End Designer/Developer',
     startDate: 'February 2016',
     endDate: 'August 2017',
-    responsibilities: '<ul><li>Built a proof-of-concept microsite for the Presidential Inauguration</li><li>This became the basis of for <a href="https://github.com/SU-SWS/decanter">Decanter</a>, an open-source scss framework which powers the main Stanford Website, the redesigned Identity Site, and the next generation of Drupal Sites built by Stanford Web Services</li><li>The front-end work on the stanford.edu site resulted in new features and extensions to the <a href="http://neat.bourbon.io">Neat</a> open source grid framework</li><li>Using Decanter, built the front-end for the <a href="http://muledesign.com/2017/07/a-fresh-face-for-the-farm">redesigned</a> <a href="https://www.stanford.edu">Stanford.edu</a> and <a href="https://identity.stanford.edu/beta">Identity Toolkit</a></li><li>Art-directed and built <a href="http://news.stanford.edu/features/2016/alaska/">a</a> <a href="http://news.stanford.edu/features/2016/slac/">variety</a> <a href="http://news.stanford.edu/2016/06/07/stroll-bowes-art-architecture-library/">of</a> <a href="http://news.stanford.edu/2016/08/24/election-2016/">digital</a> <a href="http://news.stanford.edu/2016/12/20/meet-stanford-faculty/">storytelling</a> <a href="http://news.stanford.edu/2016/06/20/entrepreneurship-at-stanford/">packages</a> for <a href="http://news.stanford.edu">Stanford News</a></li><li>Core member of the UX Community of Practice, where we share best practices, institutional knowledge and share resources with our peer UX practitioners</li></ul>',
+    responsibilities: `
+    <ul>
+      <li>Built the initial release of <a href="https://github.com/SU-SWS/decanter">Decanter</a>, an open-source scss framework which powers the main Stanford Website, the redesigned Identity Site, and the next generation of Drupal Sites built by Stanford Web Services</li>
+      <li>Using Decanter, built the front-end for the <a href="http://muledesign.com/2017/07/a-fresh-face-for-the-farm">redesigned</a> <a href="https://www.stanford.edu">Stanford.edu</a> and <a href="https://identity.stanford.edu">Identity Toolkit</a></li><li>Art-directed and built <a href="http://news.stanford.edu/features/2016/alaska/">a</a> <a href="http://news.stanford.edu/features/2016/slac/">variety</a> <a href="http://news.stanford.edu/2016/06/07/stroll-bowes-art-architecture-library/">of</a> <a href="http://news.stanford.edu/2016/08/24/election-2016/">digital</a> <a href="http://news.stanford.edu/2016/12/20/meet-stanford-faculty/">storytelling</a> <a href="http://news.stanford.edu/2016/06/20/entrepreneurship-at-stanford/">packages</a> for <a href="http://news.stanford.edu">Stanford News</a></li>
+      <li>Core member of the UX Community of Practice, where we share best practices, institutional knowledge and share resources with our peer UX practitioners</li>
+      <p> </p>
+    </ul>`,
   },
   {
     organization: {
@@ -37,7 +48,12 @@ const jobs = [
     title: 'Front End Designer',
     startDate: 'April 2013',
     endDate: 'February 2016',
-    responsibilities: '<ul><li><a href="http://www.montereybayaquarium.org/styleguide/grid-marionette">Extended</a> and <a href="http://www.montereybayaquarium.org/styleguide/item-grid">added</a> to the class-based <a href="http://www.montereybayaquarium.org/styleguide/grid-skeleton">front-end framework</a> of the Monterey Bay Aquarium and Seafood Watch sites to allow for more granular responsive control</li><li>Designed and produced the Monterey Bay Aquarium E-News, as well as other e-mail and social media campaigns and microsites</li></ul>',
+    responsibilities: `
+    <ul>
+      <li>Extended the class-based front-end framework of the Monterey Bay Aquarium and Seafood Watch sites to allow for more granular responsive control. Updated the site-wide navigation to have a better mobile and accessible views.</li>
+      <li>Updated the Animal Guide, Seafood Watch Landing Page, Education Curriculum and other sections, as well as oversaw day-to-day updates to the main Monterey Bay Aquarium website.</li>
+      <li>Designed and produced the Monterey Bay Aquarium E-News, as well as other e-mail and social media campaigns and microsites</li>
+    </ul>`,
   },
   {
     organization: {
@@ -46,9 +62,19 @@ const jobs = [
       location: 'Seaside, CA',
     },
     title: 'Art Director',
-    'startDate': 'December 2008',
-    'endDate': 'April 2013',
-    responsibilities: '<h4>Branding &amp; Art Direction:</h4><ul><li>Shaped and defined the graphic elements of brand identity at both the master brand and sub-brand levels, while managing the associated digital assets</li><li>Provided expertise in the development and evaluation of effective communication design strategies</li><li>Provided lead art direction to other staff designers, student assistants and interns</li></ul><h4>Web:</h4><ul><li>Provided art-direction for the redesign of csumb.edu, including site architecture for department subsites, at both template and sub-site levels</li><li>Assisted in building and maintaining style sheets, protocols and workflow within an enterprise-wide CMS</li><li>Conducted weekly and on-call training and assistance for campus users</li><li>Advised and assisted management on the development of overall web and social media policies, procedures and standards</li></ul><h4>Print:</h4><ul><li>Art Directed print publications such as catalogs, event invitations, booklets, newsletters, posters, flyers, brochures and other university collateral materials</li><li>Maintained the university photo, media and asset library</li></ul><h4>Photography:</h4><ul><li>Provided Event, environmental and portrait photography services</li></ul>',
+    startDate: 'December 2008',
+    endDate: 'April 2013',
+    responsibilities: `
+      <ul>
+        <li>Shaped and defined the graphic elements of brand identity at both the master brand and sub-brand levels, while managing university photo, media and asset library</li>
+        <li>Provided expertise in the development and evaluation of effective communication design strategies</li>
+        <li>Art Directed print publications such as catalogs, event invitations, booklets, newsletters, posters, flyers, brochures and other university collateral materials</li>
+        <li>Provided lead art direction to other staff designers, student assistants and interns</li>
+        <li>Provided art-direction for the redesign of csumb.edu.</li>
+        <li>Conducted weekly and ad-hoc training and assistance for campus CMS users</li>
+        <li>Advised and assisted on the development of overall web and social media policies, procedures and standards</li>
+        <li>Provided Event, environmental and portrait photography services</li>
+      </ul>`,
   },
 ]
 
