@@ -24,35 +24,35 @@ export default {
     return [
       {
         path: '/',
-        component: 'src/containers/About',
+        component: './src/containers/About',
       },
       {
         path: '/portfolio',
-        component: 'src/containers/Portfolio',
+        component: './src/containers/Portfolio',
       },
       {
         path: '/portfolio/stanford-redesign',
-        component: 'src/containers/portfolio/StanfordRedesign',
+        component: './src/containers/portfolio/StanfordRedesign',
       },
       {
         path: '/portfolio/seafood-watch',
-        component: 'src/containers/portfolio/SeafoodWatch',
+        component: './src/containers/portfolio/SeafoodWatch',
       },
       {
         path: '/portfolio/control-center',
-        component: 'src/containers/portfolio/ControlCenter',
+        component: './src/containers/portfolio/ControlCenter',
       },
       {
         path: '/resume',
-        component: 'src/containers/Resume',
+        component: './src/containers/Resume',
       },
       {
         path: '/colophon',
-        component: 'src/containers/Colophon',
+        component: './src/containers/Colophon',
       },
       {
         is404: true,
-        component: 'src/containers/404',
+        component: './src/containers/404',
       },
     ]
   },
