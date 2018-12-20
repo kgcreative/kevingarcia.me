@@ -118,11 +118,11 @@ export default withRouteData(() => (
         <h2 id="#open-source" className={styles.sectionTitle}>Contributions to Open Source</h2>
         <p>Whenever I use a framework, library or project, I look to not just consume the project, but make meaningful contributions where appropriate. The projects below are some where I've either found gaps in features, improved methods or ways to simplify functions, updated documentation in places where I tripped up or felt the docs were unclear, or added features I wished existed in the core projects.</p>
         <ul className={styles.contributionList}>
-          <li className={styles.contributionList__item}><Link to="https://github.com/thoughtbot/neat/commits?author=kgcreative">Bourbon Neat</Link></li>
-          <li className={styles.contributionList__item}><Link to="https://www.npmjs.com/package/neat-omega">Neat Omega</Link></li>
-          <li className={styles.contributionList__item}><Link to="https://github.com/nozzle/react-static/commits?author=kgcreative">React-static</Link></li>
-          <li className={styles.contributionList__item}><Link to="https://github.com/jakob-e/unitconversion/commits?author=kgcreative">unitconversion</Link></li>
-          <li className={styles.contributionList__item}><Link to="https://github.com/SU-SWS/decanter/commits?author=kgcreative">Decanter</Link></li>
+          <li className={styles.contributionList__item}><a href="https://github.com/thoughtbot/neat/commits?author=kgcreative">Bourbon Neat</a></li>
+          <li className={styles.contributionList__item}><a href="https://www.npmjs.com/package/neat-omega">Neat Omega</a></li>
+          <li className={styles.contributionList__item}><a href="https://github.com/nozzle/react-static/commits?author=kgcreative">React-static</a></li>
+          <li className={styles.contributionList__item}><a href="https://github.com/jakob-e/unitconversion/commits?author=kgcreative">unitconversion</a></li>
+          <li className={styles.contributionList__item}><a href="https://github.com/SU-SWS/decanter/commits?author=kgcreative">Decanter</a></li>
         </ul>
       </section>
     </main>

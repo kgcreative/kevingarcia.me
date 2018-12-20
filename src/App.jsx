@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import { Router, Head } from 'react-static'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
-import SiteHeader from './components/SiteHeader'
 
 // These have to be imported here for css blocks to find them.
 // I'm not sure what that does to the webpack output.
@@ -20,6 +19,7 @@ import StanfordRedesign from './containers/portfolio/StanfordRedesign.jsx'
 import SeafoodWatch from './containers/portfolio/SeafoodWatch.jsx'
 import AutomationAuditTrail from './containers/portfolio/ControlCenter.jsx'
 import Colophon from './containers/Colophon.jsx'
+import SiteHeader from './components/SiteHeader'
 
 import styles from './base-styles.scss'
 
