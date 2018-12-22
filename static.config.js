@@ -1,4 +1,4 @@
-import { reloadRoutes } from 'react-static/node'
+// import { reloadRoutes } from 'react-static/node'
 // import jdown from 'jdown'
 // import chokidar from 'chokidar'
 
