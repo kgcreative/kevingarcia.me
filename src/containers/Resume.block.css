@@ -41,13 +41,20 @@
   }
 }
 
-.experience, .education, .contributions {
-  margin: 1.25rem auto 3ex;
-  max-width: var(--BASE-CONTAINER-WIDTH);
+.contactInfo {
+  display: none;
 }
 
-.responsibilities {
-  margin-top: 0;
+@media print {
+  .contactInfo {
+    display: block;
+    position: absolute;
+    font-size: 8pt;
+    line-height: 1.5;
+    text-align: right;
+    top: .1in;
+    right: 1in;
+  }
 }
 
 .contributions {
@@ -59,24 +66,24 @@
   break-before: auto;
 }
 
-.education {
-  page-break-inside: avoid;
-  page-break-after: avoid;
-  page-break-before: auto;
-  break-inside: avoid;
-  break-after: avoid;
-  break-before: auto;
-}
-
-.resumeDegree {
+.contributionList {
   display: grid;
   grid-column-gap: 1rem;
   grid-template-columns: var(--resume-grid);
-  width: auto;
-  margin-left: auto;
-  margin-right: auto;
-  float: none;
-  align-items: baseline;
+}
+
+.contributionList__item {
+  grid-column-end: -1;
+}
+
+.dates {
+  font-size: .8em;
+  font-style: italic;
+}
+
+.degree {
+  font-weight: 700;
+  margin-bottom: 1ex;
 }
 
 .details {
@@ -89,14 +96,36 @@
   grid-column-end: -1;
 }
 
-.contributionList {
-  display: grid;
-  grid-column-gap: 1rem;
-  grid-template-columns: var(--resume-grid);
+.experience, .education, .contributions {
+  margin: 1.25rem auto 4ex;
+  max-width: var(--BASE-CONTAINER-WIDTH);
 }
 
-.contributionList__item {
-  grid-column-end: -1;
+.education {
+  page-break-inside: avoid;
+  page-break-after: avoid;
+  page-break-before: auto;
+  break-inside: avoid;
+  break-after: avoid;
+  break-before: auto;
+  padding-bottom: var(--BASE-SPACING--LOOSE);
+}
+
+.location {
+  font-size: .8em;
+  margin-bottom: 0;
+}
+
+.meta {
+  page-break-inside: avoid;
+  page-break-after: avoid;
+  page-break-before: avoid;
+}
+
+@media screen and (min-width: 600px) {
+  .meta {
+    transform: translateY(-.75ex);
+  }
 }
 
 .organizationName {
@@ -121,29 +150,19 @@
   color: #333;
 }
 
-.degree {
-  font-weight: 700;
-  margin-bottom: 1ex;
+.responsibilities {
+  margin-top: 0;
 }
 
-.meta {
-  page-break-inside: avoid;
-  page-break-after: avoid;
-  page-break-before: avoid;
-}
-
-@media screen and (min-width: 600px) {
-  .meta {
-    transform: translateY(-.75ex);
-  }
-}
-
-.location {
-  font-size: .8em;
-  margin-bottom: 0;
-}
-
-.dates {
-  font-size: .8em;
-  font-style: italic;
+.resumeDegree {
+  display: grid;
+  grid-column-gap: 1rem;
+  grid-template-columns: var(--resume-grid);
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  align-items: baseline;
+  margin-bottom: var(--BASE-SPACING--LOOSE);
+  padding-bottom: var(--BASE-SPACING--LOOSE);
 }

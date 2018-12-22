@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { withRouteData, Head, Link } from 'react-static'
 import SiteHeader from 'components/SiteHeader'
 import HideVisually from 'components/HideVisually'
 import ResumeJob from '../components/ResumeJob'
+import PrintOnly from '../components/PrintOnly'
 import styles from './Resume.block.css'
 
 const jobs = [
@@ -79,13 +80,17 @@ const jobs = [
 ]
 
 export default withRouteData(() => (
-  <React.Fragment>
+  <Fragment>
     <Head>
       <title>R&egrave;sum&egrave; | Kevin Garcia</title>
     </Head>
     <SiteHeader />
     <main className={styles} aria-labelledby="#page-title">
       <h1 id="page-title">R&egrave;sum&egrave;</h1>
+      <div className={styles.contactInfo}>
+        <div itemProp="email" content="hello@kevingarcia.me">hello@kevingarcia.me</div>
+        <div itemProp="telephone" content="+18313336294">(831) 333-6294</div>
+      </div>
       <section aria-labelledby="#experience" className={styles.experience}>
         <h2 id="#experience" className={styles.sectionTitle}>Recent Experience</h2>
         {jobs.map((job, index) => (
@@ -105,7 +110,7 @@ export default withRouteData(() => (
         <div className={styles.resumeDegree}>
           <h3 className={styles.degree}><HideVisually>Degree: </HideVisually>B.A. Visual Art</h3>
           <p className={styles.organizationName}><HideVisually>College: </HideVisually>
-            <Link to="http://www.andrews.edu" className={styles.organizationURL}>Andrews University</Link>
+            <a href="http://www.andrews.edu" target="_blank" rel="noopener noreferrer" className={styles.organizationURL}>Andrews University</a>
           </p>
           <div className={styles.meta}>
             <p className={styles.location}><HideVisually>Location: </HideVisually>Berrien Springs, MI</p>
@@ -126,5 +131,5 @@ export default withRouteData(() => (
         </ul>
       </section>
     </main>
-  </React.Fragment>
+  </Fragment>
 ))

@@ -36,10 +36,6 @@
     z-index: 1;
   }
 
-  :scope[state|resume] {
-    --BASE-LINK-COLOR: #733374;
-  }
-
   :scope::after {
     background-color: var(--theme-surface-color);
     clip-path: polygon(
@@ -65,9 +61,9 @@
     padding-bottom: 0;
     padding-left: .25em;
     padding-right: 0;
-    margin-bottom: 1.5rem;
     clip-path: none;
     background-color: transparent;
+    border: none;
   }
 
   :scope::after {
@@ -86,6 +82,15 @@
   margin-bottom: 1ex;
   white-space: nowrap;
   z-index: 0;
+}
+
+@media print {
+  .title {
+    position: relative;
+    top: .04in;
+    left: 1in;
+    margin-bottom: 1em;
+  }
 }
 
 .link {

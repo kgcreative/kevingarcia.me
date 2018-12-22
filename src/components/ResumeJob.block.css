@@ -13,31 +13,11 @@
   width: auto;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: var(--BASE-VERTICAL-SPACING--LOOSE);
+  padding-bottom: var(--BASE-VERTICAL-SPACING);
   float: none;
   max-width: var(--BASE-CONTAINER-WIDTH);
   align-items: baseline;
-}
-
-.divider {
-  display: block;
-  border: none;
-  page-break-inside: avoid;
-  page-break-before: auto;
-  page-break-after: avoid;
-  break-inside: avoid;
-  break-before: auto;
-  break-after: avoid;
-  grid-column-start: 1;
-  grid-column-end: -1;
-  margin: .5rem auto 1rem;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: var(--BASE-BORDER-COLOR);
-  width: 100%;
-}
-
-:scope:last-child .divider {
-  display: none;
 }
 
 .company {
@@ -52,12 +32,6 @@
 
 
 .details {
-  page-break-before: avoid;
-  page-break-inside: avoid;
-  page-break-after: auto;
-  break-before: avoid;
-  break-inside: avoid;
-  break-after: auto;
   grid-column-end: -1;
 }
 

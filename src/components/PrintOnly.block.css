@@ -1,0 +1,13 @@
+:scope {
+  display: none;
+}
+
+@media print {
+  :scope[state|span] {
+    display: inline;
+  }
+
+  :scope {
+    display: block;
+  }
+}

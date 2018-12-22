@@ -48,7 +48,6 @@ class ResumeJob extends Component {
         { children && (
           <div className={styles.details}>{children}</div>
         )}
-        <hr className={styles.divider} />
       </div>
     )
   }

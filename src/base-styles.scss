@@ -18,7 +18,8 @@ $base-link-color: hsl(210, 90%, 40%);
 $base-hover-color: hsl(210, 90%, 30%);
 $base-surface: hsl(210, 15%, 95%);
 $base-spacing: 1rem;
-$vertical-spacing: 1ex;
+$base-vertical-spacing: 2ex;
+$base-vertical-spacing--loose: 3ex;
 $base-font-family: $serif-font-family;
 $base-container-width: 45rem;
 $base-border-color: hsl(0, 0%, 66%);
@@ -39,9 +40,16 @@ $breakpoint: 480px;
   --theme-hover-color: #{$base-hover-color};
   --theme-surface: #{$base-surface};
   --theme-spacing: #{$base-spacing};
+  --theme-vertical-spacing: #{$base-vertical-spacing};
+  --theme-vertical-spacing--loose: #{$base-vertical-spacing--loose};
   --theme-font-family: #{$base-font-family};
   --theme-font-family-secondary: #{$sans-serif-font-family};
   --theme-container-width: #{$base-container-width};
+}
+@media print {
+  :root {
+    --theme-container-width: 100%;
+  }
 }
 
 :root {
@@ -58,13 +66,11 @@ $breakpoint: 480px;
   --BASE-HOVER-COLOR: var(--theme-hover-color, #{$base-hover-color});
   --BASE-SURFACE: var(--theme-surface, #{$base-surface});
   --BASE-SPACING: var(--theme-spacing, #{$base-spacing});
+  --BASE-VERTICAL-SPACING: var(--theme-vertical-spacing, #{$base-vertical-spacing});
+  --BASE-VERTICAL-SPACING--LOOSE: var(--theme-vertical-spacing--loose, #{$base-vertical-spacing--loose});
   --BASE-FONT-FAMILY: var(--theme-font-family, #{$base-font-family});
   --BASE-FONT-FAMILY-SANS: var(--theme-font-family-secondary, #{$sans-serif-font-family});
-  --BASE-CONTAINER-WIDTH: var(--theme-container-width, $($base-container-width));
-
-  @media print {
-    --BASE-CONTAINER-WIDTH: 100%;
-  }
+  --BASE-CONTAINER-WIDTH: var(--theme-container-width, #{$base-container-width});
 }
 
 
@@ -84,6 +90,11 @@ $breakpoint: 480px;
   @media print {
     font-size: 10pt;
   }
+}
+
+@page {
+  size: auto;
+  margin: .5in 0;
 }
 
 *, *::before, *::after {
@@ -111,11 +122,6 @@ body {
 
   margin: 0;
   padding: 0;
-
-  @media print {
-    margin: .5in;
-    margin-top: .25in;
-  }
 }
 
 a {
@@ -173,6 +179,7 @@ main {
 
   @media print {
     padding: 0;
+    margin: 0 1in;
   }
 }
 
@@ -180,7 +187,7 @@ main {
   min-height: 100vh;
 }
 
-#page-title, #main-content {
+#page-title {
   font-weight: 600;
   letter-spacing: -1px;
   font-style: italic;
@@ -190,12 +197,15 @@ main {
   text-align: center;
 
   @media print {
-    text-align: right;
-    position: absolute;
+    border-left: 1px solid var(--BASE-BORDER-COLOR);
+    color: var(--BASE-COLOR);
     font-size: 2rem;
-    top: .23in;
-    right: .5in;
-    margin: 0;
+    margin: 0 0 0 var(--BASE-SPACING);
+    padding-left: var(--BASE-SPACING);
+    position: absolute;
+      left: 3in;
+      top: 0;
+    text-align: left;
   }
 }
 

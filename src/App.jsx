@@ -19,8 +19,8 @@ import StanfordRedesign from './containers/portfolio/StanfordRedesign.jsx'
 import SeafoodWatch from './containers/portfolio/SeafoodWatch.jsx'
 import AutomationAuditTrail from './containers/portfolio/ControlCenter.jsx'
 import Colophon from './containers/Colophon.jsx'
-import SiteHeader from './components/SiteHeader'
 
+import SiteHeader from './components/SiteHeader'
 import styles from './base-styles.scss'
 
 const App = () => (
@@ -31,9 +31,7 @@ const App = () => (
       <link rel="stylesheet" href="/css-blocks.css" />
     </Head>
     <Router>
-      <Fragment>
-        <Routes />
-      </Fragment>
+      <Routes />
     </Router>
   </Fragment>
 )

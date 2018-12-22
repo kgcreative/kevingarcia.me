@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { withRouteData, Head } from 'react-static'
 import SiteHeader from 'components/SiteHeader'
 import styles from './About.block.css'
 
 export default withRouteData(() => (
-  <React.Fragment>
+  <Fragment>
     <Head>
       <title>About | Kevin Garcia</title>
     </Head>
@@ -21,5 +21,5 @@ export default withRouteData(() => (
         <li>Art Direction, Branding and Marketing at <a href="http://www.csumb.edu">Cal State Monterey Bay</a></li>
       </ul>
     </main>
-  </React.Fragment>
+  </Fragment>
 ))
