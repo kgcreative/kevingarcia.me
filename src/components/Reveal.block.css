@@ -1,0 +1,7 @@
+:scope {
+	display: none;
+}
+
+:scope[state|switched] {
+	display: inline-block;
+}

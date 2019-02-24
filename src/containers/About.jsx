@@ -6,11 +6,11 @@ import styles from './About.block.css'
 export default withRouteData(() => (
   <Fragment>
     <Head>
-      <title>About | Kevin Garcia</title>
+      <title>Kevin Garcia</title>
     </Head>
     <SiteHeader />
-    <main className={styles} aria-labelledby="#page-title">
-      <h1 id="page-title">Hello!</h1>
+    <main className={styles} aria-labelledby="#title">
+      <h1 id="title" className={styles.title}>Kevin Garcia</h1> 
       <p>I'm a senior user experience designer at <a href="https://www.jasper.com/">Cisco Jasper</a>, where I bring user-centered design approaches to solve enterprise-scale IOT management problems.</p>
       <p>Some of my past work includes:</p>
       <ul>

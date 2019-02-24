@@ -69,7 +69,7 @@
 }
 
 .organizationURL {
-  color: #333;
+  color: var(--BASE-COLOR);
 }
 
 .description {

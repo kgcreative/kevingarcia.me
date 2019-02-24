@@ -12,10 +12,10 @@ $serif-font-family: 'Noto Serif', Georgia, Times, 'Times New Roman', serif;
 $sans-serif-font-family: 'Noto Sans', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
 
 // SCSS Base Tokens:
-$base-color: hsl(210, 15%, 20%);
+$base-color: hsl(208, 15%, 20%); //#2b33a
 $base-background: transparent;
-$base-link-color: hsl(210, 90%, 40%);
-$base-hover-color: hsl(210, 90%, 30%);
+$base-link-color: hsl(194, 100%, 30%);
+$base-hover-color: hsl(194, 90%, 20%);
 $base-surface: hsl(210, 15%, 95%);
 $base-spacing: 1rem;
 $base-vertical-spacing: 2ex;
