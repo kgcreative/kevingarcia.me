@@ -17,9 +17,23 @@ export default withRouteData(() => (
     <main className={styles} aria-labelledby="#page-title">
       <h1 id="page-title">Portfolio</h1>
       <section className={styles.portfolioGrid}>
-        <div className={styles.portfolioItem}><Link to="portfolio/stanford-redesign" className={styles.wrapper}><img src={stanfordImg} className={styles.portfolioImg} alt="" /></Link><Link to="portfolio/stanford-redesign" className={styles.link}>Stanford.edu Redesign</Link></div>
-        <div className={styles.portfolioItem}><Link to="portfolio/seafood-watch" className={styles.wrapper}><img src={sfwImg} className={styles.portfolioImg} alt="" /></Link><Link to="portfolio/seafood-watch" className={styles.link}>Seafood Watch web app</Link></div>
-        <div className={styles.portfolioItem}><Link to="portfolio/control-center" className={styles.wrapper}><img src={ccImg} className={styles.portfolioImg} alt="" /></Link><Link to="portfolio/control-center" className={styles.link}>IOT Control Center</Link></div>
+        <div className={styles.portfolioItem}>
+          <Link to="portfolio/stanford-redesign" className={styles.wrapper}>
+            <img src={stanfordImg} className={styles.portfolioImg} alt="" />
+          </Link>
+          <Link to="portfolio/stanford-redesign" className={styles.link}>Stanford.edu Redesign</Link>
+        </div>
+        <div className={styles.portfolioItem}>
+          <Link to="portfolio/seafood-watch" className={styles.wrapper}>
+            <img src={sfwImg} className={styles.portfolioImg} alt="" />
+          </Link>
+          <Link to="portfolio/seafood-watch" className={styles.link}>Seafood Watch web app</Link>
+        </div>
+        <div className={styles.portfolioItem}>
+          <Link to="portfolio/control-center" className={styles.wrapper}>
+            <img src={ccImg} className={styles.portfolioImg} alt="" />
+          </Link>
+          <Link to="portfolio/control-center" className={styles.link}>IOT Control Center</Link></div>
       </section>
     </main>
   </React.Fragment>

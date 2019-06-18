@@ -15,13 +15,13 @@ const cssBlocksRewriter = require('@css-blocks/jsx/dist/src/transformer/babel')
 
 export default {
   siteRoot: 'https://www.kevingarcia.me/',
-  preact: 'true',
+  preact: 'false',
   getSiteData: () => ({
     title: 'React Static with CSS Blocks',
   }),
-  getRoutes: async () => {
+  getRoutes: async () => 
     // const { posts } = await jdown('content')
-    return [
+     [
       {
         path: '/',
         component: './src/containers/About',
@@ -55,7 +55,7 @@ export default {
         component: './src/containers/404',
       },
     ]
-  },
+  ,
   Document: ({
     Html, Head, Body, children,
   }) => (

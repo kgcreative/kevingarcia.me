@@ -13,7 +13,7 @@
   width: auto;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: var(--BASE-VERTICAL-SPACING--LOOSE);
+  margin-bottom: var(--BASE-VERTICAL-SPACING);
   padding-bottom: var(--BASE-VERTICAL-SPACING);
   float: none;
   max-width: var(--BASE-CONTAINER-WIDTH);

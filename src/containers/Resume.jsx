@@ -3,7 +3,6 @@ import { withRouteData, Head, Link } from 'react-static'
 import SiteHeader from 'components/SiteHeader'
 import HideVisually from 'components/HideVisually'
 import ResumeJob from '../components/ResumeJob'
-import PrintOnly from '../components/PrintOnly'
 import styles from './Resume.block.css'
 
 const jobs = [
@@ -11,7 +10,7 @@ const jobs = [
     organization: {
       name: 'Cisco Jasper',
       url: 'http://www.jasper.com',
-      location: 'Santa Clara, CA',
+      location: 'San Jose, CA',
     },
     title: 'Senior UX Designer',
     startDate: 'September 2017',
@@ -34,11 +33,27 @@ const jobs = [
     endDate: 'August 2017',
     responsibilities: `
     <ul>
-      <li>Built the initial release of <a href="https://github.com/SU-SWS/decanter">Decanter</a>, an open-source scss framework which powers the main Stanford Website, the redesigned Identity Site, and the next generation of Drupal Sites built by Stanford Web Services</li>
-      <li>Using Decanter, built the front-end for the <a href="http://muledesign.com/2017/07/a-fresh-face-for-the-farm">redesigned</a> <a href="https://www.stanford.edu">Stanford.edu</a> and <a href="https://identity.stanford.edu">Identity Toolkit</a></li><li>Art-directed and built <a href="http://news.stanford.edu/features/2016/alaska/">a</a> <a href="http://news.stanford.edu/features/2016/slac/">variety</a> <a href="http://news.stanford.edu/2016/06/07/stroll-bowes-art-architecture-library/">of</a> <a href="http://news.stanford.edu/2016/08/24/election-2016/">digital</a> <a href="http://news.stanford.edu/2016/12/20/meet-stanford-faculty/">storytelling</a> <a href="http://news.stanford.edu/2016/06/20/entrepreneurship-at-stanford/">packages</a> for <a href="http://news.stanford.edu">Stanford News</a></li>
+      <li>Built and established governance for the initial release of Stanford University's design system, <a href="https://decanter.stanford.edu">Decanter</a>, which powers the main Stanford Website, the redesigned Identity Site, and the next generation of Drupal Sites built by Stanford Web Services</li>
+      <li>Using theDecanter, built the front-end for the <a href="http://muledesign.com/2017/07/a-fresh-face-for-the-farm">redesigned</a> <a href="https://www.stanford.edu">Stanford.edu</a> and <a href="https://identity.stanford.edu">Identity Toolkit</a></li>
+      <li>Art-directed and built <a href="http://news.stanford.edu/features/2016/alaska/">a</a> <a href="http://news.stanford.edu/features/2016/slac/">variety</a> <a href="http://news.stanford.edu/2016/06/07/stroll-bowes-art-architecture-library/">of</a> <a href="http://news.stanford.edu/2016/08/24/election-2016/">digital</a> <a href="http://news.stanford.edu/2016/12/20/meet-stanford-faculty/">storytelling</a> <a href="http://news.stanford.edu/2016/06/20/entrepreneurship-at-stanford/">packages</a> for <a href="http://news.stanford.edu">Stanford News</a></li>
       <li>Core member of the UX Community of Practice, where we share best practices, institutional knowledge and share resources with our peer UX practitioners</li>
       <p> </p>
     </ul>`,
+  },
+  {
+    organization: {
+      name: 'Jasper Wireless',
+      url: 'http://www.jasper.com',
+      location: 'Santa Clara, CA'
+    },
+    title: 'UI/UX Designer (Contract)',
+    startDate: 'Dec 2015',
+    endDate: 'Sept 2017',
+    responsibilities: `
+    <ul>
+      <li>Provided overflow capacity from icons, sprites, wireframes, userflows, to full-fledged product features on an ad-hoc basis as the needs of the design team fluctuated during pre-acquisition growth.</li>
+    </ul>
+    `
   },
   {
     organization: {
@@ -51,7 +66,8 @@ const jobs = [
     endDate: 'February 2016',
     responsibilities: `
     <ul>
-      <li>Extended the class-based front-end framework of the Monterey Bay Aquarium and Seafood Watch sites to allow for more granular responsive control. Updated the site-wide navigation to have a better mobile and accessible views.</li>
+      <li>Extended the class-based front-end framework of the Monterey Bay Aquarium and Seafood Watch sites to allow for more granular responsive control.</li>
+      <li>Updated the site-wide navigation to have a better mobile and accessible views.</li>
       <li>Updated the Animal Guide, Seafood Watch Landing Page, Education Curriculum and other sections, as well as oversaw day-to-day updates to the main Monterey Bay Aquarium website.</li>
       <li>Designed and produced the Monterey Bay Aquarium E-News, as well as other e-mail and social media campaigns and microsites</li>
     </ul>`,
@@ -62,12 +78,12 @@ const jobs = [
       url: 'http://www.csumb.edu',
       location: 'Seaside, CA',
     },
-    title: 'Art Director',
+    title: 'Art Director (Brand)',
     startDate: 'December 2008',
     endDate: 'April 2013',
     responsibilities: `
       <ul>
-        <li>Shaped and defined the graphic elements of brand identity at both the master brand and sub-brand levels, while managing university photo, media and asset library</li>
+        <li>Shaped and defined the university brand identity at both the master brand and sub-brand levels, while managing the university photo, media and asset libraries</li>
         <li>Provided expertise in the development and evaluation of effective communication design strategies</li>
         <li>Art Directed print publications such as catalogs, event invitations, booklets, newsletters, posters, flyers, brochures and other university collateral materials</li>
         <li>Provided lead art direction to other staff designers, student assistants and interns</li>
