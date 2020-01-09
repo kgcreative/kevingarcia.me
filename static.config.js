@@ -14,7 +14,7 @@ const cssBlocksRewriter = require('@css-blocks/jsx/dist/src/transformer/babel')
 // chokidar.watch('content').on('all', () => reloadRoutes());
 
 export default {
-  siteRoot: 'http://www.kevingarciav1.netlify.com/',
+  siteRoot: 'https://kevingarciav1.netlify.com/',
   preact: true,
   getSiteData: () => ({
     title: 'Kevin Garcia',
