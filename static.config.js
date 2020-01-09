@@ -15,7 +15,7 @@ const cssBlocksRewriter = require('@css-blocks/jsx/dist/src/transformer/babel')
 
 export default {
   siteRoot: 'https://kevingarciav1.netlify.com/',
-  preact: true,
+  preact: false,
   getSiteData: () => ({
     title: 'Kevin Garcia',
   }),
