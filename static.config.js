@@ -14,10 +14,10 @@ const cssBlocksRewriter = require('@css-blocks/jsx/dist/src/transformer/babel')
 // chokidar.watch('content').on('all', () => reloadRoutes());
 
 export default {
-  siteRoot: 'https://www.kevingarcia.me/',
-  preact: false,
+  siteRoot: 'http://www.kevingarciav1.netlify.com/',
+  preact: true,
   getSiteData: () => ({
-    title: 'React Static with CSS Blocks',
+    title: 'Kevin Garcia',
   }),
   getRoutes: async () => 
     // const { posts } = await jdown('content')
